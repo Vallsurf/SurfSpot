@@ -1,0 +1,11 @@
+.login {
+    color: grey;   
+    
+}
+.login input, button{
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto; 
+   }
+
+
