@@ -1,0 +1,10 @@
+.dashboard {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.dashboard h1 {
+    color: #10b1ce;
+    text-align: center;
+    font-weight: normal;
+}

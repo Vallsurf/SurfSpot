@@ -1,0 +1,37 @@
+.spot {
+    display:flex; 
+    padding: 5px;
+    align-items: flex-start;
+    flex-direction: column;
+    border-style: solid;
+    border-width: 1px;
+    width: 200px;
+    margin: 10px;
+    
+}
+
+.spot-wrapper {
+    
+    justify-content: center; 
+    display:flex; 
+    flex-direction: row;
+    
+}
+
+@media (max-width: 800px) {
+    .spot {
+
+        width:400px;
+
+        
+    }
+    
+    .spot-wrapper {
+        
+        align-items: center;
+        display:flex; 
+        flex-direction: column;
+        
+  
+  }
+}

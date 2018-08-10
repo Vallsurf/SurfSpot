@@ -1,0 +1,38 @@
+.navbar {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center; 
+    
+
+}
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: flex-end;
+
+}
+
+li {
+    margin: 5px;
+    
+}
+
+.navbar li a {
+    font-size: 1em;
+    text-align: center;
+    
+    text-decoration: none;
+}
+
+.navbar a{
+    display: flex; 
+    
+    text-decoration: none;
+    font-size: 3em;
+    flex: 1;
+    color: #10b1ce;
+    
+}
