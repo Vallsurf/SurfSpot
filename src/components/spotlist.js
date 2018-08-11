@@ -3,26 +3,29 @@ import Navbar from './navbar';
 import {connect} from 'react-redux'; 
 import './spotlist.css'
 
-import {fetchSpots} from '../actions'; 
+import {fetchSpots, fetchSpotsData} from '../actions'; 
 
 export class Spotlist extends Component {
+  
   componentDidMount() {
+    console.log('componentmounting')
     this.props.dispatch(fetchSpots());
 }
 
   render() {
-        const spots = this.props.spots.map((spots, index) => 
+    
+        // const spots = this.props.spots.map((spots, index) => 
         <div className="listed-spot">
-        <h3>{spots.name}</h3>
+        <h3>test</h3>
         <button>Add</button>
         </div>
-    )
+    // )
 
     return (
       <div className="dashboard">
           <Navbar />
         <h1>All Spots</h1>
-            {spots}
+            {/* {spots} */}
       </div>
     )
   }
