@@ -3,7 +3,13 @@ import Navbar from './navbar';
 import {connect} from 'react-redux'; 
 import './spotlist.css'
 
+import {fetchSpots} from '../actions'; 
+
 export class Spotlist extends Component {
+  componentDidMount() {
+    this.props.dispatch(fetchSpots());
+}
+
   render() {
         const spots = this.props.spots.map((spots, index) => 
         <div className="listed-spot">
@@ -23,7 +29,7 @@ export class Spotlist extends Component {
 }
 
 const mapStateToProps = state => ({
-    spots: state.allspots
+    spots: state
   })
   
 export default connect(mapStateToProps)(Spotlist); 

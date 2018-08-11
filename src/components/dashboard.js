@@ -5,6 +5,7 @@ import './dashboard.css'
 
 export default class Dashboard extends Component {
   render() {
+    
     return (
       <div className="dashboard">
           <Navbar />
