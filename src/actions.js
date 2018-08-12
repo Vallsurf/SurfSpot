@@ -18,8 +18,7 @@ export const fetchSpotsData = () => ({
     type: FETCH_SPOTS_DATA,
 })
 
-
 export const fetchSpots = () => dispatch => {
-    dispatch(FETCH_SPOTS_SUCCESS());
+    dispatch(fetchSpotsData());
     
 };
