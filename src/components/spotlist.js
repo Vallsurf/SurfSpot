@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
-import Navbar from './navbar';
 import {connect} from 'react-redux'; 
+import Navbar from './navbar';
+import County from './County';
 import './spotlist.css'
 
 import {fetchSpots, fetchSpotsData} from '../actions'; 
@@ -13,31 +14,38 @@ export class Spotlist extends Component {
 
   render() {
 
-      console.log(this.props.spots)
+      // console.log(this.props.spots)
 
-      let spots; 
+      let allspots; 
+
 
       if(this.props.spots){
-      spots = this.props.spots.map((spots, index) => 
-        <div key={index} className="listed-spot">
-        <h3 >{spots.spot_name}</h3>
-        <button>Add</button>
-        </div>
+      allspots = this.props.spots.map((spots, index) => {
+        
+        return(<h2 key={index}>{spots._id}</h2>)
+        
+        spots.spot.map((singlespot, index)=> {
+          // console.log(singlespot.spot_name)
+          return(<h3>{singlespot.spot_name}</h3>)
+        })
+      }
     )
+    console.log(allspots)
   }
 
+
     return (
-      <div className="dashboard">
+      <div className="SpotList">
           <Navbar />
         <h1>All Spots</h1>
-            {spots}
+            {this.props.spots.map(spot => <County spot={spot} />)}
       </div>
     )
   }
 }
 
 const mapStateToProps = state => {
-  console.log(state.spots); 
+  // console.log(state.spots); 
   return {
     spots: state.allspots
   };

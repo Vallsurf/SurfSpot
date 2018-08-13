@@ -62,7 +62,7 @@ import * as actions from './actions';
 
 export const initialState = {
     loading: false ,
-    allspots: null, 
+    allspots: [], 
     userspots: [{
         name: 'County Line',
         swell: '2-3 ft',
@@ -86,7 +86,7 @@ export const initialState = {
 
 
 export const spotReducer = (state = initialState, action) => {
-    console.log(initialState)
+    // console.log(initialState)
         if (action.type === actions.FETCH_SPOTS_SUCCESS){
             return Object.assign({}, state, {
                 loading: false,
