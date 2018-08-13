@@ -60,12 +60,37 @@ import * as actions from './actions';
 // },
 // ]}
 
-const initialState = {loading: false };
+export const initialState = {
+    loading: false ,
+    allspots: null, 
+    userspots: [{
+        name: 'County Line',
+        swell: '2-3 ft',
+        wind: '3 kts',
+        tide: 'H: 312a L:9a H:4p L:10p'
+    },
+    {
+        name: 'Leo Carillo',
+        swell: '2-3 ft',
+        wind: '3 kts',
+        tide: 'H: 312a L:9a H:4p L:10p'
+    },
+    {
+        name: 'Zuma',
+        swell: '2-3 ft',
+        wind: '3 kts',
+        tide: 'H: 312a L:9a H:4p L:10p'
+    }
+
+    ]} 
+
 
 export const spotReducer = (state = initialState, action) => {
+    console.log(initialState)
         if (action.type === actions.FETCH_SPOTS_SUCCESS){
             return Object.assign({}, state, {
-                loading: true
+                loading: false,
+                allspots: action.spots
             })
         }
 
@@ -74,4 +99,12 @@ export const spotReducer = (state = initialState, action) => {
                 loading: true
             })
         }
+
+        // else if (action.type === actions.FETCH_USER_SPOTS){
+        //     console.log('userspots')
+        //     return Object.assign({}, state, {...state},)
+        // }
+
+       else{ return state}
+        
 }

@@ -1,10 +1,17 @@
 import React, { Component } from 'react'; 
 import {connect} from 'react-redux'; 
+import {fetchUserSpots} from '../actions'
 import './spot.css'
 
 export class Spot extends Component {
+  componentDidMount(){
+    this.props.dispatch(fetchUserSpots)
+  }
+
   render() {
-    const spots = this.props.spots.map((spot, index) => (
+    let spots; 
+    if(this.props.spots){ 
+      spots = this.props.spots.map((spot, index) => (
       <div className="spot" key={index}>
       <h3 key={index}>{spot.name}</h3>
       <p>{spot.swell}</p>
@@ -12,6 +19,7 @@ export class Spot extends Component {
       <p>{spot.tide}</p>
       </div>
     ))
+  }
     
 
     return (
@@ -22,8 +30,11 @@ export class Spot extends Component {
   }
 }
 
-const mapStateToProps = state => ({
-  spots: state.spots
-})
+const mapStateToProps = state => {
+console.log(state);
+return  {
+  spots: state.userspots
+};
+}
 
 export default connect(mapStateToProps)(Spot); 
