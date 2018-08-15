@@ -9,29 +9,3 @@
     margin: 10px;
     
 }
-
-.spot-wrapper {
-    
-    justify-content: center; 
-    display:flex; 
-    flex-direction: row;
-    
-}
-
-@media (max-width: 800px) {
-    .spot {
-
-        width:400px;
-
-        
-    }
-    
-    .spot-wrapper {
-        
-        align-items: center;
-        display:flex; 
-        flex-direction: column;
-        
-  
-  }
-}

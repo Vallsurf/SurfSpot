@@ -1,0 +1,44 @@
+.spotDetail{
+    width: 80%; 
+    margin: 0 auto; 
+    display:flex;
+    flex-flow: row wrap;
+
+    /* border: 1px;
+    border-style: solid;
+    border-width: 1px; */
+}
+
+.spotname {
+    width: 100%;
+}
+
+.sectionname {
+    width: 100%;
+    text-align:center;
+}
+.hourly-wrapper {
+    display:flex;
+    flex-flow: row wrap;
+}
+
+.hourlydetail {
+    margin: 5px;
+    padding: 5px;
+    font-size: 13px;
+    font-family: sans-serif;
+
+    border: 1px;
+    border-style: solid;
+    border-width: 1px;
+}
+
+.time {
+    margin: 5px;
+    padding: 5px;
+    font-size: 13px;
+    font-family: sans-serif;
+    font-weight: bold;
+    color: red;
+
+}

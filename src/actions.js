@@ -18,12 +18,17 @@ export const fetchSpotsData = () => ({
     type: FETCH_SPOTS_DATA,
 })
 
-
 //get userSpots
 export const FETCH_USER_SPOTS = 'FETCH_USER_SPOTS'
 export const fetchUserSpots = () => ({
     type: FETCH_USER_SPOTS,
 })
+
+export const FETCH_SINGLESPOT_SUCCESS = 'FETCH_SINGLESPOT_SUCCESS';
+export const fetchSingleSpotSuccess = (spotdetail) => ({
+    type: FETCH_SINGLESPOT_SUCCESS,
+    spotdetail
+});
 
 export const fetchSpots = () => dispatch => {
     dispatch(fetchSpotsData());
@@ -36,5 +41,19 @@ export const fetchSpots = () => dispatch => {
         }).then(spotsdata => {
             dispatch(fetchSpotsSuccess(spotsdata));
         }).catch(err => dispatch(fetchSpotsError(err)));
+
+};
+
+export const fetchForecast = (spotid) => dispatch => {
+    dispatch(fetchSpotsData());
+    fetch(`http://api.spitcast.com/api/spot/forecast/${spotid}/`)
+    .then(res => {
+            if (!res.ok) {
+                return Promise.reject(res.statusText);
+            }
+            return res.json()
+        }).then(spotsdata => {
+            dispatch(fetchSingleSpotSuccess(spotsdata));
+        }).catch(err => console.log(err));
 
 };

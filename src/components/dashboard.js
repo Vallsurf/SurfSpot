@@ -10,14 +10,15 @@ export class Dashboard extends Component {
       <div className="dashboard">
           <Navbar />
         <h1>My Spots</h1>
-            {this.props.spots.map(userspots => <Spot name={userspots.name} />)}
+         <div className="UserSpots"> 
+         {this.props.spots.map((userspots, index) =>  <div className="spot"> <Spot key={index} data={userspots} /></div> )}
+         </div>
       </div>
     )
   }
 }
 
 const mapStateToProps = state => {
-  console.log(state);
   return  {
     spots: state.userspots
   };
