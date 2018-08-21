@@ -13,7 +13,7 @@ export default class App extends Component {
           <Route exact path="/" component={Welcome} />
           <Route exact path="/dashboard" component={Dashboard} />
           <Route exact path="/spots" component={Spotlist} />
-          <Route exact path="/spots/:spotid/:spotname" component={Spotdetail} />
+          <Route exact path="/spots/:county/:spotid/:spotname" component={Spotdetail} />
       </div>
     )
   }

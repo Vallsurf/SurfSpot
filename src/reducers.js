@@ -2,42 +2,12 @@ import * as actions from './actions';
 export const initialState = {
     loading: false ,
     allspots: [], 
-    spotdetail: [], 
+    spotdetail: [],
+    totaldetails: [], 
     userspots: [{
-        spot_name: 'County Line',
-        swell: '2-3 ft',
-        wind: '3 kts',
-        tide: 'H: 312a L:9a H:4p L:10p'
-    },
-    {
-        spot_name: 'Leo Carillo',
-        swell: '2-3 ft',
-        wind: '3 kts',
-        tide: 'H: 312a L:9a H:4p L:10p'
-    },
-    {
-        spot_name: 'Zuma',
-        swell: '2-3 ft',
-        wind: '3 kts',
-        tide: 'H: 312a L:9a H:4p L:10p'
-    },
-    {
-        spot_name: 'Zuma',
-        swell: '2-3 ft',
-        wind: '3 kts',
-        tide: 'H: 312a L:9a H:4p L:10p'
-    },
-    {
-        spot_name: 'Zuma',
-        swell: '2-3 ft',
-        wind: '3 kts',
-        tide: 'H: 312a L:9a H:4p L:10p'
-    },
-    {
-        spot_name: 'Zuma',
-        swell: '2-3 ft',
-        wind: '3 kts',
-        tide: 'H: 312a L:9a H:4p L:10p'
+        county_name: 'Los Angeles',
+        spot_id: '207',
+        spot_name: 'County Line'
     }
 
     ]} 
@@ -61,6 +31,36 @@ export const spotReducer = (state = initialState, action) => {
             return Object.assign({}, state, {
                 loading: false, 
                 spotdetail: action.spotdetail
+            })
+        }
+
+        else if (action.type === actions.FETCH_SINGLESPOT_FULL_SUCCESS){
+            const details = action.forecast.map((item) => {
+                const wind = action.wind.find(w => w.hour === item.hour)
+                const tide = action.tide.find(t => t.hour === item.hour)
+                return {...item, ...wind, ...tide}
+            })
+
+            return Object.assign({}, state, {
+                loading: false, 
+                spotdetail: action.forecast,
+                totaldetails: details 
+                
+            })
+        }
+
+        else if (action.type === actions.FETCH_COUNTY_DATA_ONLY){
+            const details = action.swell.map((item) => {
+                const wind = action.wind.find(w => w.hour === item.hour)
+                const tide = action.tide.find(t => t.hour === item.hour)
+                return {...item, ...wind, ...tide}
+            })
+
+            return Object.assign({}, state, {
+                loading: false, 
+                spotdetail: action.forecast,
+                totaldetails: details 
+                
             })
         }
 
