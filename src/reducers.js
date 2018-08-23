@@ -8,9 +8,9 @@ export const initialState = {
         county_name: 'Los Angeles',
         spot_id: '207',
         spot_name: 'County Line'
-    }
+    }]
 
-    ]} 
+} 
 
 
 export const spotReducer = (state = initialState, action) => {
@@ -31,6 +31,13 @@ export const spotReducer = (state = initialState, action) => {
             return Object.assign({}, state, {
                 loading: false, 
                 spotdetail: action.spotdetail
+            })
+        }
+
+        else if (action.type === actions.FETCH_USER_SPOTS){
+            return Object.assign({}, state, {
+                loading: false, 
+                userspots: action.userspots
             })
         }
 

@@ -1,5 +1,6 @@
 const {API_BASE_URL} = require('./config');
 
+
 export const FETCH_SPOTS_SUCCESS = 'FETCH_SPOTS_SUCCESS';
 export const fetchSpotsSuccess = (spots) => ({
     type: FETCH_SPOTS_SUCCESS,
@@ -20,8 +21,9 @@ export const fetchSpotsData = () => ({
 
 //get userSpots
 export const FETCH_USER_SPOTS = 'FETCH_USER_SPOTS'
-export const fetchUserSpots = () => ({
+export const fetchUserSpots = (userspots) => ({
     type: FETCH_USER_SPOTS,
+    userspots
 })
 
 export const FETCH_SINGLESPOT_SUCCESS = 'FETCH_SINGLESPOT_SUCCESS';
@@ -49,6 +51,18 @@ export const fetchCountyDataOnly = (forecast, wind, swell, tide) => (
     tide
 });
 
+export const LOGIN = 'LOGIN';
+export const LoginSuccess = (user) => ({
+    type: LOGIN,
+    user
+});
+
+export const REGISTER = 'REGISTER';
+export const RegisterSuccess = (user) => ({
+    type: REGISTER,
+    user
+});
+
 
 export const fetchSpots = () => dispatch => {
     dispatch(fetchSpotsData());
@@ -63,23 +77,6 @@ export const fetchSpots = () => dispatch => {
         }).catch(err => dispatch(fetchSpotsError(err)));
 
 };
-
-// export const fetchForecast = (spotid, county) => dispatch => {
-//       let urls = [`http://api.spitcast.com/api/spot/forecast/${spotid}/`, 
-//                   `http://api.spitcast.com/api/county/wind/${county}/`,
-//                   `http://api.spitcast.com/api/county/swell/${county}/`,
-//                   `http://api.spitcast.com/api/county/tide/${county}/`]
-// dispatch(fetchSpotsData());
-
-// Promise.all(urls.map(url => fetch(url)))
-//     .then(([res1,res2,res3,res4]) =>  
-//     Promise.all([res1.json(), res2.json(), res3.json(), res4.json()]))
-//     .then(([forecast, wind, swell, tide]) => {
-//             dispatch(fetchSingleSpotFullSuccess(forecast, wind, swell, tide));
-//         })
-//     .catch(fetchCountyData(county));
-
-// };
 
 export const fetchForecast = (spotid, county) => dispatch => {
     dispatch(fetchSpotsData());

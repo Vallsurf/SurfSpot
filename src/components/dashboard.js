@@ -20,7 +20,7 @@ export class Dashboard extends Component {
 
 const mapStateToProps = state => {
   return  {
-    spots: state.userspots
+    spots: state.spots.userspots
   };
   }
   

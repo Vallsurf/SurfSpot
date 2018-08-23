@@ -44,10 +44,10 @@ export class Spotdetail extends Component {
 }
 const mapStateToProps = state => {
     return  {
-      spotdetail: state.spotdetail,
-      swelldetail: state.swelldetail, 
-      winddetail: state.winddetail,
-      totaldetails: state.totaldetails
+      spotdetail: state.spots.spotdetail,
+      swelldetail: state.spots.swelldetail, 
+      winddetail: state.spots.winddetail,
+      totaldetails: state.spots.totaldetails
     };
     }
 
