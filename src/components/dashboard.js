@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import {connect} from 'react-redux'; 
 import Navbar from './navbar';
 import Spot from './spot'
+import requiresLogin from './requires-login';
 import './dashboard.css'
 
 export class Dashboard extends Component {
@@ -24,4 +25,4 @@ const mapStateToProps = state => {
   };
   }
   
-  export default connect(mapStateToProps)(Dashboard); 
+  export default requiresLogin()(connect(mapStateToProps)(Dashboard)); 

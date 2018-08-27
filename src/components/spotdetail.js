@@ -3,12 +3,12 @@ import {connect} from 'react-redux';
 import Navbar from './navbar';
 import SpotForecast from './spotForecast';
 import CurrentCondition from './currentcondition';
+import Spotadd from './spotadd'
 import {fetchForecast} from '../actions'; 
 import './spotdetail.css'
 
 
 export class Spotdetail extends Component {
-  
     componentDidMount() {
      const spotid = this.props.match.params.spotid; 
      const county = this.props.match.params.county.split(" ").join("-").toLowerCase();
@@ -27,6 +27,7 @@ export class Spotdetail extends Component {
         <Navbar />
       <div className="spotDetail">
       <div className="spotname"> <h1>{this.props.match.params.spotname}</h1></div>
+      <div className="spotpref"><Spotadd id={this.props.match.params.spotid} data={this.props.userspots}/></div>
       <div className="sectionname"> <h2>{today}</h2></div>
       <div className="sectionname"> <h2>Current Conditions</h2></div>
       <div className="currentconditions"> <CurrentCondition data={this.props} hour={hour}/></div>
@@ -47,7 +48,8 @@ const mapStateToProps = state => {
       spotdetail: state.spots.spotdetail,
       swelldetail: state.spots.swelldetail, 
       winddetail: state.spots.winddetail,
-      totaldetails: state.spots.totaldetails
+      totaldetails: state.spots.totaldetails,
+      userspots: state.spots.userspots
     };
     }
 

@@ -26,7 +26,6 @@ export class Spotlist extends Component {
 }
 
 const mapStateToProps = state => {
-  // console.log(state.spots); 
   return {
     spots: state.spots.allspots
   };

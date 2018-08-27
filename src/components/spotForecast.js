@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 
 export default class SpotForecast extends Component {
   render() {
-    console.log(this.props.forecast.spotdetail)
     if(this.props.data.spotdetail === 'nogood'){
     
       return (

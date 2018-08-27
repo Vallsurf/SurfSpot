@@ -100,7 +100,6 @@ export const fetchForecast = (spotid, county) => dispatch => {
   Promise.all(urls.map(url => fetch(url))).then(([res1,res2,res3]) =>  
   Promise.all([res1.json(), res2.json(), res3.json()]))
   .then(([ wind, swell, tide]) => {
-    console.log(forecast)
     if(forecast === 'nogood'){
           dispatch(fetchCountyDataOnly(forecast, wind, swell, tide));
           

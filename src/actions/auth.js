@@ -36,14 +36,23 @@ export const authError = error => ({
 
 // Stores the auth token in state and localStorage, and decodes and stores
 // the user data stored in the token
-const storeAuthInfo = (authToken, dispatch) => {
-    const decodedToken = jwtDecode(authToken);
+const decodeToken = token => jwtDecode(token); 
+
+export const storeAuthInfo = (authToken, dispatch) => {
+    // const decodedToken = jwtDecode(authToken);
+    const Token = decodeToken(authToken); 
     dispatch(setAuthToken(authToken));
-    dispatch(authSuccess(decodedToken.username, decodedToken.userspots));
-    dispatch(fetchUserSpots(decodedToken.userspots));
+    dispatch(authSuccess(Token.username, Token.userspots));
+    dispatch(fetchUserSpots(Token.userspots));
     saveAuthToken(authToken);
 };
 
+export const reloadToken = (authToken) => (dispatch) => {
+    const Token = decodeToken(authToken); 
+    dispatch(setAuthToken(authToken));
+    dispatch(authSuccess(Token.username, Token.userspots));
+    dispatch(fetchUserSpots(Token.userspots));
+}
 
 //Creates a new User
 export const registerUser = user => dispatch => {

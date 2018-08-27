@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 
 export default class CurrentCondition extends Component {
   render() {
-    console.log(this.props.data.spotdetail)
     const currentHour = 
     this.props.hour === 12 ? this.props.hour + 'PM' : 
     this.props.hour > 12 ? this.props.hour - 12 + 'PM' : 
