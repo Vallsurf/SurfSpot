@@ -3,9 +3,14 @@ import {connect} from 'react-redux';
 import Navbar from './navbar';
 import Spot from './spot'
 import requiresLogin from './requires-login';
+import {getUserSpots} from '../actions'
 import './dashboard.css'
 
 export class Dashboard extends Component {
+  componentDidMount(){
+    this.props.dispatch(getUserSpots());
+  }
+
   render() {
     return (
       <div className="dashboard">

@@ -1,5 +1,5 @@
+import {loadAuthToken, saveAuthToken, clearAuthToken} from './local-storage'; 
 const {API_BASE_URL} = require('./config');
-
 
 export const FETCH_SPOTS_SUCCESS = 'FETCH_SPOTS_SUCCESS';
 export const fetchSpotsSuccess = (spots) => ({
@@ -23,6 +23,13 @@ export const fetchSpotsData = () => ({
 export const FETCH_USER_SPOTS = 'FETCH_USER_SPOTS'
 export const fetchUserSpots = (userspots) => ({
     type: FETCH_USER_SPOTS,
+    userspots
+})
+
+//refresh userSpots
+export const EDIT_USER_SPOTS = 'EDIT_USER_SPOTS'
+export const editUserSpots = (userspots) => ({
+    type: EDIT_USER_SPOTS,
     userspots
 })
 
@@ -91,7 +98,6 @@ export const fetchForecast = (spotid, county) => dispatch => {
     .catch(err => forecast='nogood')
 
     let urls = [
-                // `http://api.spitcast.com/api/spot/forecast/${spotid}/`, 
                 `http://api.spitcast.com/api/county/wind/${county}/`,
                 `http://api.spitcast.com/api/county/swell/${county}/`,
                 `http://api.spitcast.com/api/county/tide/${county}/`]
@@ -128,3 +134,55 @@ export const fetchCountyData = (county) => dispatch => {
     .catch(err => console.log(err));
 
 };
+
+export const addFavorite = (spotid) => (dispatch) => {
+    const token = loadAuthToken(); 
+    console.log(token); 
+    return(
+        fetch(`${API_BASE_URL}/api/user/addspot/${spotid}`, {
+            method: 'PATCH',
+            headers: {
+                'Authorization': `Bearer ${token}`
+            },
+        })
+        .then(res => res.json())
+        .then(updatedSpots => {
+            console.log(updatedSpots); 
+            dispatch(editUserSpots(updatedSpots.savedspots))
+        })
+    )
+};
+
+export const removeFavorite = (spotid) => dispatch => {
+    const token = loadAuthToken();
+    console.log(token);
+
+    return(
+        fetch(`${API_BASE_URL}/api/user/removespot/${spotid}`, {
+            method: 'PATCH',
+            headers: {
+                'Authorization': `Bearer ${token}`
+            },
+        })
+        .then(res => res.json())
+        .then(updatedSpots => {
+            dispatch(editUserSpots(updatedSpots.savedspots))
+        })
+    )
+};
+
+export const getUserSpots = () => dispatch => {
+    const token = loadAuthToken(); 
+    return(
+        fetch(`${API_BASE_URL}/api/user/`, {
+            method: 'GET',
+            headers: {
+                'Authorization': `Bearer ${token}`
+            },
+        })
+        .then(res => res.json())
+        .then(userInfo => {
+            dispatch(fetchUserSpots(userInfo[0].savedspots))
+        })
+    )
+}

@@ -41,6 +41,13 @@ export const spotReducer = (state = initialState, action) => {
             })
         }
 
+        else if (action.type === actions.EDIT_USER_SPOTS){
+            console.log(action.userspots);
+            return Object.assign({}, state, {
+                userspots: action.userspots
+            })
+        }
+
         else if (action.type === actions.FETCH_SINGLESPOT_FULL_SUCCESS){
             const details = action.forecast.map((item) => {
                 const wind = action.wind.find(w => w.hour === item.hour)

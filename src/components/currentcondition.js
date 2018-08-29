@@ -6,6 +6,7 @@ export default class CurrentCondition extends Component {
     this.props.hour === 12 ? this.props.hour + 'PM' : 
     this.props.hour > 12 ? this.props.hour - 12 + 'PM' : 
     this.props.hour +'AM' ;
+    
     if(this.props.data.spotdetail === 'nogood'){
       return (
         <div>

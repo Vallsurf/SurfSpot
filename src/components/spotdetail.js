@@ -19,15 +19,15 @@ export class Spotdetail extends Component {
     var date = new Date(); 
     var options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
     var today  = date.toLocaleDateString("en-US",options);
-    var hour = date.getHours(); 
-  
+    var hour = date.getHours();    
+
 
     return (
       <div>
         <Navbar />
       <div className="spotDetail">
       <div className="spotname"> <h1>{this.props.match.params.spotname}</h1></div>
-      <div className="spotpref"><Spotadd id={this.props.match.params.spotid} data={this.props.userspots}/></div>
+      <div className="spotpref"><Spotadd addButton={this.props.userspots.findIndex(test => test.spot_id == this.props.match.params.spotid)}  id={this.props.match.params.spotid} dispatch={this.props.dispatch}/></div>
       <div className="sectionname"> <h2>{today}</h2></div>
       <div className="sectionname"> <h2>Current Conditions</h2></div>
       <div className="currentconditions"> <CurrentCondition data={this.props} hour={hour}/></div>
