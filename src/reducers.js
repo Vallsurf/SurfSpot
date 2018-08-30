@@ -2,7 +2,8 @@ import * as actions from './actions';
 export const initialState = {
     loading: false ,
     allspots: [], 
-    spotdetail: [],
+    spotdetail: [], 
+    spotsnapshot: [],
     totaldetails: [], 
     userspots: [{
         county_name: 'Los Angeles',
@@ -27,16 +28,9 @@ export const spotReducer = (state = initialState, action) => {
             })
         }
 
-        else if (action.type === actions.FETCH_SINGLESPOT_SUCCESS){
-            return Object.assign({}, state, {
-                loading: false, 
-                spotdetail: action.spotdetail
-            })
-        }
-
         else if (action.type === actions.FETCH_USER_SPOTS){
             return Object.assign({}, state, {
-                loading: false, 
+                loading: true, 
                 userspots: action.userspots
             })
         }
@@ -57,7 +51,6 @@ export const spotReducer = (state = initialState, action) => {
 
             return Object.assign({}, state, {
                 loading: false, 
-                spotdetail: action.forecast,
                 totaldetails: details 
                 
             })
@@ -75,6 +68,19 @@ export const spotReducer = (state = initialState, action) => {
                 spotdetail: action.forecast,
                 totaldetails: details 
                 
+            })
+        }
+
+        else if (action.type === actions.FETCH_DASHBOARD_SUCCESS){
+            const details = action.forecast.map((item) => {
+                const wind = action.wind.find(w => w.hour === item.hour)
+                const tide = action.tide.find(t => t.hour === item.hour)
+                return {...item, ...wind, ...tide}
+            })
+
+            return Object.assign({}, state, {
+                loading: false, 
+                spotsnapshot: [...state.spotsnapshot, details]  
             })
         }
 

@@ -4,7 +4,7 @@ import Navbar from './navbar';
 import SpotForecast from './spotForecast';
 import CurrentCondition from './currentcondition';
 import Spotadd from './spotadd'
-import {fetchForecast} from '../actions'; 
+import {fetchForecast, getUserSpots} from '../actions'; 
 import './spotdetail.css'
 
 
@@ -13,6 +13,8 @@ export class Spotdetail extends Component {
      const spotid = this.props.match.params.spotid; 
      const county = this.props.match.params.county.split(" ").join("-").toLowerCase();
         this.props.dispatch(fetchForecast(spotid, county));
+        this.props.dispatch(getUserSpots());
+        
     }
 
   render() {

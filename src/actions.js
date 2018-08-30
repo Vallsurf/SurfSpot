@@ -33,10 +33,13 @@ export const editUserSpots = (userspots) => ({
     userspots
 })
 
-export const FETCH_SINGLESPOT_SUCCESS = 'FETCH_SINGLESPOT_SUCCESS';
-export const fetchSingleSpotSuccess = (spotdetail) => ({
-    type: FETCH_SINGLESPOT_SUCCESS,
-    spotdetail
+export const FETCH_DASHBOARD_SUCCESS = 'FETCH_DASHBOARD_SUCCESS';
+export const fetchDashboardSuccess = (forecast, wind, swell, tide) => ({
+    type: FETCH_DASHBOARD_SUCCESS,
+    forecast,
+    wind,
+    swell,
+    tide
 });
 
 export const FETCH_SINGLESPOT_FULL_SUCCESS = 'FETCH_SINGLESPOT_FULL_SUCCESS';
@@ -118,23 +121,6 @@ export const fetchForecast = (spotid, county) => dispatch => {
 
 };
 
-export const fetchCountyData = (county) => dispatch => {
-    let urls = [
-                  `http://api.spitcast.com/api/county/wind/${county}/`,
-                  `http://api.spitcast.com/api/county/swell/${county}/`,
-                  `http://api.spitcast.com/api/county/tide/${county}/`]
-
-   Promise.all(urls.map(url => fetch(url)))
-    .then(([res1,res2,res3]) =>  
-    Promise.all([res1.json(), res2.json(), res3.json()]))
-    .then(([wind, swell, tide]) => {
-            console.log(wind, swell,)
-            // dispatch(fetchCountyDataOnly(wind, swell, tide));
-        })
-    .catch(err => console.log(err));
-
-};
-
 export const addFavorite = (spotid) => (dispatch) => {
     const token = loadAuthToken(); 
     console.log(token); 
@@ -172,6 +158,8 @@ export const removeFavorite = (spotid) => dispatch => {
 };
 
 export const getUserSpots = () => dispatch => {
+    dispatch(fetchSpotsData());
+    
     const token = loadAuthToken(); 
     return(
         fetch(`${API_BASE_URL}/api/user/`, {
@@ -180,9 +168,46 @@ export const getUserSpots = () => dispatch => {
                 'Authorization': `Bearer ${token}`
             },
         })
-        .then(res => res.json())
+        .then(res => {
+            return res.json()})
         .then(userInfo => {
             dispatch(fetchUserSpots(userInfo[0].savedspots))
         })
+        .catch(err => console.log(err))
     )
 }
+
+export const fetchDashboardForecast = (spotid, county) => dispatch => {
+    dispatch(fetchSpotsData());
+    let urls = [
+        `http://api.spitcast.com/api/county/wind/${county}/`,
+        `http://api.spitcast.com/api/county/swell/${county}/`,
+        `http://api.spitcast.com/api/county/tide/${county}/`]
+    
+        //get spot forecast first if  exist
+    let forecast; 
+    fetch(`http://api.spitcast.com/api/spot/forecast/${spotid}/`)
+    // .then(res => {
+    //     // if(!res.ok){return forecast=`nogood`}
+    //     // else{return res.json()
+    //         console.log(res.json())}
+    // )
+    .then(res => res.json())
+    .then(res => {forecast = res })
+    .catch(err => forecast='nogood')
+
+  //get County Data
+  Promise.all(urls.map(url => fetch(url))).then(([res1,res2,res3]) =>  
+  Promise.all([res1.json(), res2.json(), res3.json()]))
+  .then(([ wind, swell, tide]) => {
+    if(forecast === 'nogood'){
+          dispatch(fetchCountyDataOnly(forecast, wind, swell, tide));
+          
+    }
+    else{
+        dispatch(fetchDashboardSuccess(forecast, wind, swell, tide));
+    }
+      })
+  .catch(err => console.log(err));
+
+};

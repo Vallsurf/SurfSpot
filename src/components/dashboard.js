@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import {connect} from 'react-redux'; 
 import Navbar from './navbar';
-import Spot from './spot'
+import DashSpot from './DashSpot'
 import requiresLogin from './requires-login';
 import {getUserSpots} from '../actions'
 import './dashboard.css'
@@ -17,7 +17,7 @@ export class Dashboard extends Component {
           <Navbar />
         <h1>My Spots</h1>
          <div className="UserSpots"> 
-         {this.props.spots.map((userspots, index) =>  <div className="spot"> <Spot key={index} data={userspots} /></div> )}
+         {this.props.spots.map((userspots, index) =>  <div className="spot" key={index}> <DashSpot  data={userspots} /></div> )}
          </div>
       </div>
     )
