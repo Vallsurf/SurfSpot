@@ -1,5 +1,8 @@
 import React, { Component } from 'react'
 import RenderDashSpotData from './RenderDashSpotData'
+import tide from '../assets/tide.png'
+import swell from '../assets/water.png'
+import wind from '../assets/wind.png'
 
 export default class DashSpotData extends Component {
   render() {
@@ -17,7 +20,13 @@ export default class DashSpotData extends Component {
       <div>
         {this.props.data.map((thisspot,index) => {
             if(thisspot.spot_id === spotid && thisspot.hour === currentHour)
-            {return(<RenderDashSpotData key={index} spotdata={thisspot}/>)}
+            return( 
+            <div className="DashboardData">
+              <div className="DashboardDataRow"><img src ={swell} width='25px' height='25px'/> <p>  {thisspot.size} ft. {thisspot.shape_detail.swell}</p></div>
+              <div className="DashboardDataRow"><img src ={wind} width='25px' height='25px'/> <p> {thisspot.speed_kts} kts. {thisspot.wind}</p></div>
+              <div className="DashboardDataRow"><img src ={tide} width='25px' height='25px'/> <p> {thisspot.tide_meters.toFixed(1)}m. {thisspot.shape_detail.wind}</p></div>
+            </div>
+            )
         })
         }
       </div>
