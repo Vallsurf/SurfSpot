@@ -11,7 +11,7 @@ export class SpotLink extends Component {
 
   render() {
     return (
-      <div>
+      <div className="SpotLink">
         <a href={`spots/`+ this.props.data.county_name +'/'+this.props.data.spot_id + `/` + this.props.data.spot_name}>{this.props.data.spot_name}</a>
       </div>
     )
