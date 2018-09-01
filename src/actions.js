@@ -247,12 +247,10 @@ export const fetchDashboardForecast = (spotid, county) => dispatch => {
             Promise.all([res1.json(), res2.json(), res3.json()]))
                 .then(([ wind, swell, tide]) => {
         
-        if(forecast == 'nogood'){
-            console.log(forecast)
+        if(forecast === 'nogood'){
           dispatch(fetchDashboardCountyData(forecast, wind, swell, tide));
         }
         else{
-            console.log(forecast)
           dispatch(fetchDashboardSuccess(forecast, wind, swell, tide));
         }
         })
