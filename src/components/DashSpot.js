@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
-import { fetchForecast } from '../actions';
+import { fetchDashboardForecast } from '../actions';
 import DashSpotData from './DashSpotData';
 import spinnner from '../assets/spinning-circles.svg';
 import './spot.css';
@@ -17,7 +17,7 @@ export class DashSpot extends Component {
           hour + 'AM';
     const spotid = this.props.data.spot_id;
     const county = this.props.data.county_name.split(" ").join("-").toLowerCase();
-    this.props.dispatch(fetchForecast(spotid, county));
+    this.props.dispatch(fetchDashboardForecast(spotid, county));
   }
 
   render() {

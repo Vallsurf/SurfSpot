@@ -30,6 +30,7 @@ export const spotReducer = (state = initialState, action) => {
 
         else if (action.type === actions.FETCH_USER_SPOTS){
             return Object.assign({}, state, {
+                loading: true, 
                 userspots: action.userspots
             })
         }
@@ -70,24 +71,8 @@ export const spotReducer = (state = initialState, action) => {
             })
         }
 
-        else if (action.type === actions.FETCH_DASHBOARD_COUNTY_DATA_ONLY){
-            const details = action.swell.map((item) => {
-                const wind = action.wind.find(w => w.hour === item.hour)
-                const tide = action.tide.find(t => t.hour === item.hour)
-                return {...item, ...wind, ...tide}
-            })
-
-            return Object.assign({}, state, {
-                loading: false, 
-                spotdetail: action.forecast,
-                spotsnapshot: [...state.spotsnapshot, details]  
-                
-            })
-        }
-
         else if (action.type === actions.FETCH_DASHBOARD_SUCCESS){
-            if(action.forecast){
-            const details = () => action.forecast.map((item) => {
+            const details = action.forecast.map((item) => {
                 const wind = action.wind.find(w => w.hour === item.hour)
                 const tide = action.tide.find(t => t.hour === item.hour)
                 return {...item, ...wind, ...tide}
@@ -97,19 +82,6 @@ export const spotReducer = (state = initialState, action) => {
                 loading: false, 
                 spotsnapshot: [...state.spotsnapshot, details]  
             })
-        }
-        else{
-            const details = () => action.swell.map((item) => {
-                const wind = action.wind.find(w => w.hour === item.hour)
-                const tide = action.tide.find(t => t.hour === item.hour)
-                return {...item, ...wind, ...tide}
-            })
-
-            return Object.assign({}, state, {
-                loading: false, 
-                spotsnapshot: [...state.spotsnapshot, details]  
-            })
-        }
         }
 
        else{ return state}
