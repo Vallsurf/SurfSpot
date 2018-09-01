@@ -9,17 +9,6 @@
     font-weight: normal;
 }
 
-.spot {
-    display:flex; 
-    padding: 5px;
-    align-items: center;
-    border-style: solid;
-    border-width: 1px;
-    width: 200px;
-    margin: 10px;
-    
-}
-
 .UserSpots {
     width: 70%;
     margin: 0 auto;
@@ -29,6 +18,46 @@
     align-items: center;
     flex-wrap: wrap;
 }
+
+.spot {
+    display:flex; 
+    padding: 5px;
+    align-items: center;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #868689;
+    border-radius: 25px;
+    width: 200px;
+    margin: 10px;
+
+}
+
+.spot a{
+    text-align: center;
+    color:#5D6D7E;
+    text-decoration: none;
+}
+
+.Classcard {
+    display: flex;
+    margin: 0 auto;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.dataContainer{
+    display: flex; 
+    margin:0 auto;
+}
+
+.DashData{
+    color:#697E99;
+}
+
+
+
+
 
 @media (max-width: 800px) {
     .spot {

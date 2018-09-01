@@ -1,5 +1,7 @@
 import {loadAuthToken, saveAuthToken, clearAuthToken} from './local-storage'; 
+import {normalizeResponseErrors} from './actions/utils';
 const {API_BASE_URL} = require('./config');
+
 
 export const FETCH_SPOTS_SUCCESS = 'FETCH_SPOTS_SUCCESS';
 export const fetchSpotsSuccess = (spots) => ({
@@ -61,6 +63,17 @@ export const fetchCountyDataOnly = (forecast, wind, swell, tide) => (
     tide
 });
 
+export const FETCH_DASHBOARD_COUNTY_DATA_ONLY = 'FETCH_DASHBOARD_COUNTY_DATA_ONLY';
+export const fetchDashboardCountyData = (forecast, wind, swell, tide) => (
+    {
+    type: FETCH_DASHBOARD_COUNTY_DATA_ONLY,
+    forecast,
+    wind,
+    swell,
+    tide
+});
+
+
 export const LOGIN = 'LOGIN';
 export const LoginSuccess = (user) => ({
     type: LOGIN,
@@ -97,8 +110,8 @@ export const fetchForecast = (spotid, county) => dispatch => {
     .then(res => {
         if(!res.ok){return forecast=`nogood`}
         return res.json()})
-    .then(res => forecast = res)
-    .catch(err => forecast='nogood')
+    .then(res => {return forecast = res})
+    .catch(err => {forecast='nogood'})
 
     let urls = [
                 `http://api.spitcast.com/api/county/wind/${county}/`,
@@ -109,6 +122,7 @@ export const fetchForecast = (spotid, county) => dispatch => {
   Promise.all(urls.map(url => fetch(url))).then(([res1,res2,res3]) =>  
   Promise.all([res1.json(), res2.json(), res3.json()]))
   .then(([ wind, swell, tide]) => {
+    console.log(forecast)  
     if(forecast === 'nogood'){
           dispatch(fetchCountyDataOnly(forecast, wind, swell, tide));
           
@@ -177,37 +191,85 @@ export const getUserSpots = () => dispatch => {
     )
 }
 
-export const fetchDashboardForecast = (spotid, county) => dispatch => {
-    dispatch(fetchSpotsData());
+async function getData(spot) {
+    const forecast = await fetch(`http://api.spitcast.com/api/spot/forecast/${spot}/`)
+    
+    if(forecast.status === '200'){
+        return await forecast.json()
+    }
+    else{
+        return 'nogood'
+    }
+    
+}
+
+async function getCountyData(county) {
     let urls = [
         `http://api.spitcast.com/api/county/wind/${county}/`,
         `http://api.spitcast.com/api/county/swell/${county}/`,
         `http://api.spitcast.com/api/county/tide/${county}/`]
+
+    const [wind, swell, tide] = await
+    Promise.all(urls.map(url => fetch(url))).then(([res1,res2,res3]) =>  
+    Promise.all([res1.json(), res2.json(), res3.json()])); 
+    console.log(wind, swell, tide)
+    return {wind, swell, tide}
+        
+    }
+
+
+
+export const fetchDashboardForecast = (spotid, county) => dispatch => {
+//     let forecast = async() => { 
+//         let spotforecast =  await getData(spotid) 
+//         return spotforecast};  
+
+//     let countyData = async() => { await getCountyData(county) }; 
     
-        //get spot forecast first if  exist
+//    forecast(); 
+//    countyData(); 
+
     let forecast; 
+        
+    let urls = [
+        `http://api.spitcast.com/api/county/wind/${county}/`,
+        `http://api.spitcast.com/api/county/swell/${county}/`,
+        `http://api.spitcast.com/api/county/tide/${county}/`]; 
+
     fetch(`http://api.spitcast.com/api/spot/forecast/${spotid}/`)
-    // .then(res => {
-    //     // if(!res.ok){return forecast=`nogood`}
-    //     // else{return res.json()
-    //         console.log(res.json())}
-    // )
-    .then(res => res.json())
-    .then(res => {forecast = res })
-    .catch(err => forecast='nogood')
-
-  //get County Data
-  Promise.all(urls.map(url => fetch(url))).then(([res1,res2,res3]) =>  
-  Promise.all([res1.json(), res2.json(), res3.json()]))
-  .then(([ wind, swell, tide]) => {
-    if(forecast === 'nogood'){
-          dispatch(fetchCountyDataOnly(forecast, wind, swell, tide));
-          
-    }
-    else{
-        dispatch(fetchDashboardSuccess(forecast, wind, swell, tide));
-    }
-      })
+    .then(res => {return forecast = res.json()})
+    .catch(err => {return forecast = 'nogood'})
+    // .then(hmm => {
+    //     if(!forecast){console.log('hmm')}
+    //     console.log(forecast)
+    // })
+   .then(Promise.all(urls.map(url => fetch(url))).then(([res1,res2,res3]) =>  
+            Promise.all([res1.json(), res2.json(), res3.json()]))
+                .then(([ wind, swell, tide]) => {
+        
+        if(forecast == 'nogood'){
+            console.log(forecast)
+          dispatch(fetchDashboardCountyData(forecast, wind, swell, tide));
+        }
+        else{
+            console.log(forecast)
+          dispatch(fetchDashboardSuccess(forecast, wind, swell, tide));
+        }
+        })
+    )    
   .catch(err => console.log(err));
-
+    
 };
+
+// const getCountyDashData = (county) => {
+//     let urls = [
+//         `http://api.spitcast.com/api/county/wind/${county}/`,
+//         `http://api.spitcast.com/api/county/swell/${county}/`,
+//         `http://api.spitcast.com/api/county/tide/${county}/`]
+
+//     Promise.all(urls.map(url => fetch(url))).then(([res1,res2,res3]) =>  
+//     Promise.all([res1.json(), res2.json(), res3.json()]))
+//     .then(([ wind, swell, tide]) => {
+
+
+// }

@@ -1,4 +1,8 @@
 
+.spotlist{
+    width: 80%;
+    margin: 0 auto;
+}
 h1 {
     color: #10b1ce;
     display:flex; 
