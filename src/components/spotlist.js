@@ -18,8 +18,10 @@ export class Spotlist extends Component {
           <Navbar />
       
         <h1>All Spots</h1>
-           <div className="AllSpots"> {this.props.spots.map((county, index) => <div className="countylist"><County key={index} county={county} /></div>)}
+         <div className="AllSpots"><ul>{this.props.spots.map((county, index) => <li><div className="countylist"><County key={index} county={county} /></div></li>)}
+         </ul>  
       </div>
+      
       </div>
     )
   }

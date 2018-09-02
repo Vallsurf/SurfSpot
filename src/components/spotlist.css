@@ -18,9 +18,7 @@ h3 {
     display:flex; 
     flex-direction: row;
     flex-wrap: wrap; 
-    border-radius: 25px;
-    border-style: solid;
-    border-width: 1px;
+    justify-content: center;
     width: 200px;
     margin: 10px;
     padding: 5px;
@@ -35,11 +33,90 @@ h3 {
     flex-wrap: wrap;
 }
 
-.SpotLink{
-    display: none;
+.AllSpots ul {
+    background: white;
+    display:flex; 
+    flex-direction: row;
+    flex-wrap:wrap;
+    -webkit-transition: .5s;
+    transition: .5s;
+    justify-content: center;
+    
 }
+
+.AllSpots li {
+    display:flex; 
+    flex-direction: column;
+    list-style: none;
+    -webkit-transition: .5s;
+    transition: .5s;
+    
+}
+
+.AllSpots ul li:hover ul{
+    background-color: rgba(193, 193, 200, 0.9);
+    display: block;
+    opacity: 1;
+    color: white;
+} 
+
+
+.AllSpots ul li ul {
+    display:none;
+    opacity: 0;
+    position: absolute;
+    width: auto;
+    border-radius:15px;
+    padding: 20px;
+}
+
+.SpotLink a{
+    color: white;
+    text-decoration: none;
+}
+
+.SpotLink a:hover{
+    color: #10b1ce;
+    text-decoration: none;
+}
+
+
+
+/* .SpotLink{
+    display: none;
+} */
 
 .CountyHeader{
     display:flex; 
     justify-content: center;
 }
+
+/* .AllSpots ul ul {
+    position: absolute;
+    left: 0;
+    top: 100%;
+    visibility: hidden;
+    opacity: 0;
+}
+
+.AllSpots ul ul ul {
+    left: 100%;
+    top: 0;
+}
+
+.AllSpots li:hover, .AllSpots li:hover li {
+    background: #ddd;
+}
+
+.AllSpots li li:hover, .AllSpots li li:hover li {
+    background: #bbb;
+}
+
+.AllSpots li li li:hover {
+    background: #999;
+}
+
+.AllSpots li:hover > ul {
+    visibility: visible;
+    opacity: 1;
+} */

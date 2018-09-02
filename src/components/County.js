@@ -6,7 +6,8 @@ export default class County extends Component {
     return (
       <div>
         <div className="CountyHeader"><p>{this.props.county._id}</p></div>
-        {this.props.county.spots.map((singlespot, index) => <SpotLink key={index} data={singlespot}/>)}
+        <ul>{this.props.county.spots.map((singlespot, index) => <li><SpotLink key={index} data={singlespot}/></li>)}
+        </ul>
       </div>
     )
   }
