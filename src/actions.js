@@ -104,6 +104,10 @@ export const fetchSpots = () => dispatch => {
 export const fetchForecast = (spotid, county) => dispatch => {
     dispatch(fetchSpotsData());
 
+    let urls = [
+        `http://api.spitcast.com/api/county/wind/${county}/`,
+        `http://api.spitcast.com/api/county/swell/${county}/`,
+        `http://api.spitcast.com/api/county/tide/${county}/`]
     //get spot forecast first and handle if doesn't exist
     let forecast; 
     fetch(`http://api.spitcast.com/api/spot/forecast/${spotid}/`)
@@ -111,26 +115,20 @@ export const fetchForecast = (spotid, county) => dispatch => {
         if(!res.ok){return forecast=`nogood`}
         return res.json()})
     .then(res => {return forecast = res})
-    .catch(err => {forecast='nogood'})
-
-    let urls = [
-                `http://api.spitcast.com/api/county/wind/${county}/`,
-                `http://api.spitcast.com/api/county/swell/${county}/`,
-                `http://api.spitcast.com/api/county/tide/${county}/`]
-
+    .catch(err => {return console.log(`err: ${err}`)})
   //get County Data
-  Promise.all(urls.map(url => fetch(url))).then(([res1,res2,res3]) =>  
-  Promise.all([res1.json(), res2.json(), res3.json()]))
-  .then(([ wind, swell, tide]) => {
-    console.log(forecast)  
-    if(forecast === 'nogood'){
-          dispatch(fetchCountyDataOnly(forecast, wind, swell, tide));
-          
-    }
-    else{
-        dispatch(fetchSingleSpotFullSuccess(forecast, wind, swell, tide));
-    }
-      })
+    .then(Promise.all(urls.map(url => fetch(url))).then(([res1,res2,res3]) => Promise.all([res1.json(), res2.json(), res3.json()]))
+    .then(([ wind, swell, tide]) => {
+        console.log(forecast)  
+            if(!forecast){
+                let forecast = 'nogood'
+                dispatch(fetchCountyDataOnly(forecast, wind, swell, tide));
+            }
+            else{
+               dispatch(fetchSingleSpotFullSuccess(forecast, wind, swell, tide));
+            }
+        })
+    )
   .catch(err => console.log(err));
 
 };
@@ -185,6 +183,7 @@ export const getUserSpots = () => dispatch => {
         .then(res => {
             return res.json()})
         .then(userInfo => {
+            
             dispatch(fetchUserSpots(userInfo[0].savedspots))
         })
         .catch(err => console.log(err))
@@ -291,8 +290,9 @@ export const fetchDashboardForecast = (spotid, county) => dispatch => {
   Promise.all(urls.map(url => fetch(url))).then(([res1,res2,res3]) =>  
   Promise.all([res1.json(), res2.json(), res3.json()]))
   .then(([ wind, swell, tide]) => {
-    if(forecast === 'nogood'){
-          dispatch(fetchCountyDataOnly(forecast, wind, swell, tide));
+    if(!forecast){
+            forecast = spotid; 
+          dispatch(fetchDashboardCountyData(forecast, wind, swell, tide));
           
     }
     else{

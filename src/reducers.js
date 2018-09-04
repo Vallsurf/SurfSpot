@@ -71,6 +71,22 @@ export const spotReducer = (state = initialState, action) => {
             })
         }
 
+        else if (action.type === actions.FETCH_DASHBOARD_COUNTY_DATA_ONLY){
+            const spot = action.forecast
+            const details = action.swell.map((item) => {
+                const wind = action.wind.find(w => w.hour === item.hour)
+                const tide = action.tide.find(t => t.hour === item.hour)
+                return {spot, ...item, ...wind, ...tide}
+            })
+
+            return Object.assign({}, state, {
+                loading: false, 
+                spotdetail: 'nogood',
+                spotsnapshot: [...state.spotsnapshot, details]  
+                
+            })
+        }
+
         else if (action.type === actions.FETCH_DASHBOARD_SUCCESS){
             const details = action.forecast.map((item) => {
                 const wind = action.wind.find(w => w.hour === item.hour)
