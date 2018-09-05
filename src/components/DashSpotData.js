@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import RenderDashSpotData from './RenderDashSpotData'
 import tide from '../assets/tide.png'
 import swell from '../assets/water.png'
 import wind from '../assets/wind.png'

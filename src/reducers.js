@@ -5,15 +5,9 @@ export const initialState = {
     spotdetail: [], 
     spotsnapshot: [],
     totaldetails: [], 
-    userspots: [{
-        county_name: 'Los Angeles',
-        spot_id: '207',
-        spot_name: 'County Line'
-    }]
+    userspots: []
 
 } 
-
-
 export const spotReducer = (state = initialState, action) => {
         if (action.type === actions.FETCH_SPOTS_SUCCESS){
             return Object.assign({}, state, {
@@ -30,7 +24,6 @@ export const spotReducer = (state = initialState, action) => {
 
         else if (action.type === actions.FETCH_USER_SPOTS){
             return Object.assign({}, state, {
-                loading: true, 
                 userspots: action.userspots
             })
         }

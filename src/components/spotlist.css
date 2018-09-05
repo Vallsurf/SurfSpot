@@ -19,7 +19,6 @@ h3 {
     flex-direction: row;
     flex-wrap: wrap; 
     justify-content: center;
-    width: 200px;
     margin: 10px;
     padding: 5px;
 }

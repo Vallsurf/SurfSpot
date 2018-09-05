@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import {connect} from 'react-redux'; 
+import {Link} from 'react-router-dom';
+
 import './spot.css'
 
 export class SpotLink extends Component {
@@ -12,7 +14,7 @@ export class SpotLink extends Component {
   render() {
     return (
       <div className="SpotLink">
-        <a href={`spots/`+ this.props.data.county_name +'/'+this.props.data.spot_id + `/` + this.props.data.spot_name}>{this.props.data.spot_name}</a>
+        <Link to={`spots/`+ this.props.data.county_name +'/'+this.props.data.spot_id + `/` + this.props.data.spot_name}>{this.props.data.spot_name}</Link>
       </div>
     )
   }

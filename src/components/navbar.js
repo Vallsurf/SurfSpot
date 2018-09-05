@@ -1,8 +1,9 @@
 import React, { Component } from 'react'; 
 import {connect} from 'react-redux'; 
-import {clearAuth} from '../actions/auth'
-import {clearAuthToken} from '../local-storage'
-import './navbar.css'
+import {clearAuth} from '../actions/auth';
+import {clearAuthToken} from '../local-storage';
+import {Link} from 'react-router-dom';
+import './navbar.css'; 
 
 export class Navbar extends Component {
 
@@ -15,11 +16,11 @@ export class Navbar extends Component {
     
     return (
       <div className="navbar">
-          <a href='/dashboard'>SurfSpot.</a>
+          <Link to="/dashboard">SurfSpot.</Link>
           <ul>
-              <li><a href="/dashboard">Home</a></li>
-              <li><a href="/spots">Spots</a></li>
-              <li><a href="/" onClick={() =>this.logOut()}>Logout</a></li>
+              <li><Link to="/dashboard">Home</Link></li>
+              <li><Link to="/spots">Spots</Link></li>
+              <li><Link to="/" onClick={() =>this.logOut()}>Logout</Link></li>
           </ul>
       </div>
     )

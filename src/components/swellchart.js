@@ -39,10 +39,6 @@ export default class SwellChart extends Component {
       };
 
       var options = {
-        animation: {
-          easing: 'easeInOutBounce'
-          
-        },
         scales: {
             xAxes: [{
                 gridLines: {

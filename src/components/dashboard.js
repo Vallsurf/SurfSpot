@@ -4,6 +4,7 @@ import Navbar from './navbar';
 import DashSpot from './DashSpot'
 import requiresLogin from './requires-login';
 import {getUserSpots} from '../actions'
+import {Link} from 'react-router-dom';
 import './dashboard.css'
 
 export class Dashboard extends Component {
@@ -12,6 +13,7 @@ export class Dashboard extends Component {
   }
 
   render() {
+    if(this.props.spots.length){
     return (
       <div className="dashboard">
           <Navbar />
@@ -21,6 +23,18 @@ export class Dashboard extends Component {
          </div>
       </div>
     )
+  }
+  else{
+    return(
+      <div className="dashboard">
+          <Navbar />
+        <h1>My Spots</h1>
+         <div className="UserSpots"> 
+          <p>You have no favorited spots! <Link to="/spots"> Browse Spots </Link> to add some! </p>
+         </div>
+      </div>
+    )
+  }
   }
 }
 

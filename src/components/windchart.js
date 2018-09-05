@@ -38,10 +38,6 @@ export default class WindChart extends Component {
       };
 
       var options = {
-        animation: {
-          easing: 'easeInOutBounce'
-          
-        },
         scales: {
             xAxes: [{
                 gridLines: {

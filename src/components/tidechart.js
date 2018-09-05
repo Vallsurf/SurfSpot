@@ -40,10 +40,6 @@ export default class TideChart extends Component {
       };
 
       var options = {
-        animation: {
-          easing: 'easeInOutBounce'
-          
-        },
         scales: {
             xAxes: [{
                 gridLines: {

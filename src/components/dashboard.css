@@ -22,6 +22,11 @@
     flex-wrap: wrap;
 }
 
+.UserSpots a{
+    font-size: 16px;
+    color: #CE2D10;
+}
+
 .spot {
     display:flex; 
     padding: 5px;
