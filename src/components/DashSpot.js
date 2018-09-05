@@ -2,23 +2,31 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import { fetchDashboardForecast } from '../actions';
 import DashSpotData from './DashSpotData';
-import spinnner from '../assets/spinning-circles.svg';
+import spinner from '../assets/spinning-circles.svg';
+import {Link} from 'react-router-dom';
 import './spot.css';
 
 export class DashSpot extends Component {
-  componentDidMount() {
+   componentDidMount() {
     const spotid = this.props.data.spot_id;
     const county = this.props.data.county_name.split(" ").join("-").toLowerCase();
     this.props.dispatch(fetchDashboardForecast(spotid, county));
+
+    //call just for spot forecast
+
+    //call for just county data
+    
   }
 
   render() {
-    return (
+    if (this.props.loading) 
+    return <div id="loading"><img src={spinner} alt="Loading..."/></div>;
+
+    return (  
       <div className ="SpotData">
-        
         {/* Use Link */}
-        <a href={`spots/` + this.props.data.county_name + '/' + this.props.data.spot_id + `/` + this.props.data.spot_name}>{this.props.data.spot_name}</a>
-       
+        <Link to={`spots/` + this.props.data.county_name + '/' + this.props.data.spot_id + `/` + this.props.data.spot_name}>{this.props.data.spot_name}</Link>
+        {/* <a href={`spots/` + this.props.data.county_name + '/' + this.props.data.spot_id + `/` + this.props.data.spot_name}>{this.props.data.spot_name}</a> */}
         {this.props.spotdata.map((spots, index) =>  <DashSpotData key={index} data={spots} spotid={this.props.data.spot_id} />)}
       </div>
     )

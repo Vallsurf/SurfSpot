@@ -20,12 +20,12 @@ export default class Spotadd extends Component {
     
     if(this.props.addButton === -1){
       return (
-        <div><a href='#' onClick={() => this.onClickAdd()}><img src ={add} width='25px' height='25px'/>Add To Favorites</a></div>
+        <div><a href='#' onClick={() => this.onClickAdd()}><img src ={add} width='20px' height='20px'/>Add To Favorites</a></div>
       )
     }
     else {
       return (
-        <div><img src ={checkmark} width='25px' height='25px'/><a href='#' onClick={() => this.onClickRemove()}>Remove from Favorites</a></div>
+        <div><img src ={checkmark} width='25px' height='25px'/><a href='#' onClick={() => this.onClickRemove()}>Remove</a></div>
       )
     }
   }

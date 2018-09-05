@@ -1,8 +1,11 @@
+@import url('https://fonts.googleapis.com/css?family=Playfair+Display');
+
 .navbar {
     width: 100%;
     display: flex;
     flex-direction: row;
     align-items: center; 
+    font-family: 'Playfair Display', serif;
     
 
 }
@@ -23,15 +26,13 @@ li {
 .navbar li a {
     font-size: 1em;
     text-align: center;
-    
     text-decoration: none;
 }
 
 .navbar a{
     display: flex; 
-    
     text-decoration: none;
-    font-size: 3em;
+    font-size: 60px;
     flex: 1;
     color: #10b1ce;
     

@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Cormorant+Garamond');
+
 .Welcome {
     height:100%;
     text-align: center;
@@ -8,4 +10,58 @@
     display: flex;
     justify-content: center;
     align-items: center; 
+    flex-direction: column;
+    font-family: 'Cormorant Garamond', serif;
+    
+}
+
+.login-cont{
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    flex-direction: column;
+    margin-top:-250px;
+}
+
+.RegHome{
+    height:100%;
+    text-align: center;
+    background-image: url('../assets/surfer.jpg'); 
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    flex-direction: column;
+    font-family: 'Cormorant Garamond', serif;
+
+}
+
+.reg-cont{
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    flex-direction: column;
+    margin-top:-250px;
+}
+
+input[type="text"], input[type="password"]
+{
+    border: 0;
+    outline: 0;
+    background: transparent;
+    border-bottom: 1px solid  #10b1ce;
+    margin: 10px;
+}
+
+button{
+    color:#5D605B;
+    font-size: 16px;
+    padding: 7px;
+    margin: 10px;
+}
+
+a{
+    font-size: 20px;
 }

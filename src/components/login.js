@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import {Field, reduxForm, focus} from 'redux-form';
 import {Login as loginaction} from '../actions/auth'; 
+import {Link} from 'react-router-dom';
 import Input from './input';
 import './login.css'
 
@@ -13,13 +14,12 @@ export class Login extends Component {
 }
   render() {
     return (
-      <div>
+      <div className="login-cont">
+        <h1>WELCOME TO SURFSPOT</h1>
         <form className="login"  
         onSubmit={this.props.handleSubmit(values =>
             this.onSubmit(values)
         )}>
-        <h1>Welcome to SurfSpot</h1>
-        <h2>Coming Soon</h2>
         <label htmlFor="username">Username</label>
         <Field
             component={Input}
@@ -40,6 +40,8 @@ export class Login extends Component {
             Login
         </button>     
         </form>
+        <h3>Don't have an account? </h3>
+        <Link to="/register">Register</Link>
       </div>
     )
   }

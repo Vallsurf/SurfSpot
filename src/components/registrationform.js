@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {Field, reduxForm, focus} from 'redux-form';
 import {registerUser, Login} from '../actions/auth'; 
+import {Link} from 'react-router-dom';
 import Input from './input';
 
 export  class RegistrationForm extends Component {
@@ -17,6 +18,9 @@ export  class RegistrationForm extends Component {
 
   render() {
     return (
+        <div className="reg-cont">
+        <h1>WELCOME TO SURFSPOT</h1>
+        <h2>Register</h2>
         <form
         className="login-form"
         onSubmit={this.props.handleSubmit(values =>
@@ -43,12 +47,16 @@ export  class RegistrationForm extends Component {
             name="passwordConfirm"
             // validate={[required, nonEmpty, matchesPassword]}
         />
+      
         <button
             type="submit"
             disabled={this.props.pristine || this.props.submitting}>
             Register
         </button>
     </form>
+    <h3>Already have an account? </h3>
+    <Link to="/">Login</Link>
+    </div>
     )
   }
 }

@@ -4,6 +4,9 @@ import Navbar from './navbar';
 import SpotForecast from './spotForecast';
 import CurrentCondition from './currentcondition';
 import Spotadd from './spotadd'
+import TideChart from './tidechart'
+import SwellChart from './swellchart'
+import WindChart from './windchart'
 import {fetchForecast, getUserSpots} from '../actions'; 
 import './spotdetail.css'
 
@@ -21,25 +24,23 @@ export class Spotdetail extends Component {
     var date = new Date(); 
     var options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
     var today  = date.toLocaleDateString("en-US",options);
-    var hour = date.getHours();    
-
-
+    var hour = date.getHours(); 
+   
     return (
       <div>
-        <Navbar />
       <div className="spotDetail">
-      <div className="spotname"> <h1>{this.props.match.params.spotname}</h1></div>
+      <Navbar />
+      <div className="spotname">{this.props.match.params.spotname}
       <div className="spotpref"><Spotadd addButton={this.props.userspots.findIndex(test => test.spot_id == this.props.match.params.spotid)}  id={this.props.match.params.spotid} dispatch={this.props.dispatch}/></div>
+      </div>
       <div className="sectionname"> <h2>{today}</h2></div>
-      <div className="sectionname"> <h2>Current Conditions</h2></div>
+      <div className="sectionname"> <h2>Right Now</h2></div>
       <div className="currentconditions"> <CurrentCondition data={this.props} hour={hour}/></div>
       <div className="sectionname"> <h2>Hourly Forecast</h2></div>
-      <div className="hourly-wrapper">
-      {this.props.totaldetails.map(spot => 
-      <div className="hourlydetail">
-      <SpotForecast forecast={spot} data={this.props}/>
-      </div>)}
-      </div>
+      <div className ='chart'><TideChart data={this.props.totaldetails}/></div>
+      <div className ='chart'><SwellChart data={this.props.totaldetails}/></div>
+      <div className ='chart'><WindChart data={this.props.totaldetails}/></div>
+      {/* <div className="hourly-wrapper">{this.props.totaldetails.map(spot => <div className="hourlydetail"><SpotForecast forecast={spot} data={this.props}/></div>)}</div> */}
       </div>
       </div>
     )
