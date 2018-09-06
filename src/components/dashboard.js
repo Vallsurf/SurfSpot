@@ -3,12 +3,13 @@ import {connect} from 'react-redux';
 import Navbar from './navbar';
 import DashSpot from './DashSpot'
 import requiresLogin from './requires-login';
-import {getUserSpots} from '../actions'
+import {getUserSpots, refreshDashData} from '../actions'
 import {Link} from 'react-router-dom';
 import './dashboard.css'
 
 export class Dashboard extends Component {
   componentDidMount(){
+    this.props.dispatch(refreshDashData());
     this.props.dispatch(getUserSpots());
   }
 

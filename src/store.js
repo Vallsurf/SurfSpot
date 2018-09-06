@@ -8,13 +8,16 @@ import {reloadToken} from './actions/auth';
 
 const preloadState = {spots, auth }
 
+const composeEnhancers =
+                window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()|| compose;
+
 const store = createStore(
     combineReducers({
         spots: spotReducer, 
         auth: authReducer, 
         form: formReducer}), 
         preloadState, 
-        compose(applyMiddleware(thunk), window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())); 
+        compose(applyMiddleware(thunk), composeEnhancers)); 
 
 const authToken = loadAuthToken();
 if (authToken) {

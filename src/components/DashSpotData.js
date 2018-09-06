@@ -23,8 +23,8 @@ export default class DashSpotData extends Component {
             return( 
             <div className="DashboardData">
               <div className="DashboardDataRow"><img src ={swell} width='25px' height='25px'/> <p>  {thisspot.size} ft. {thisspot.shape_detail.swell}</p></div>
-              <div className="DashboardDataRow"><img src ={wind} width='25px' height='25px'/> <p> {thisspot.speed_kts} kts. {thisspot.wind}</p></div>
-              <div className="DashboardDataRow"><img src ={tide} width='25px' height='25px'/> <p> {thisspot.tide_meters.toFixed(1)}m. {thisspot.shape_detail.tide}</p></div>
+              <div className="DashboardDataRow"><img src ={wind} width='25px' height='25px'/> <p> {thisspot.speed_kts} kts. {thisspot.direction_text}</p></div>
+              <div className="DashboardDataRow"><img src ={tide} width='25px' height='25px'/> <p> {((thisspot.tide_meters)*(3.28)).toFixed(1)} ft. </p></div>
             </div>
             )
           }
@@ -34,7 +34,7 @@ export default class DashSpotData extends Component {
             <div className="DashboardData">
             <div className="DashboardDataRow"><img src ={swell} width='25px' height='25px'/> <p>  {((thisspot.hst)*(3.28)).toFixed(1)} ft. </p></div>
             <div className="DashboardDataRow"><img src ={wind} width='25px' height='25px'/> <p> {thisspot.speed_kts} kts. {thisspot.direction_text}</p></div>
-            <div className="DashboardDataRow"><img src ={tide} width='25px' height='25px'/> <p> {thisspot.tide_meters.toFixed(1)}m.   </p></div>
+            <div className="DashboardDataRow"><img src ={tide} width='25px' height='25px'/> <p> {((thisspot.tide_meters)*(3.28)).toFixed(1)} ft. </p></div>
           </div>
           )
         }

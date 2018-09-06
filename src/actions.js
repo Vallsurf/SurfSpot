@@ -35,6 +35,14 @@ export const editUserSpots = (userspots) => ({
     userspots
 })
 
+
+//refresh Dashboard Data
+export const REFRESH_DASH_DATA = 'REFRESH_DASH_DATA'
+export const refreshDashData = () => ({
+    type: REFRESH_DASH_DATA
+    
+})
+
 export const FETCH_DASHBOARD_SUCCESS = 'FETCH_DASHBOARD_SUCCESS';
 export const fetchDashboardSuccess = (forecast, wind, swell, tide) => ({
     type: FETCH_DASHBOARD_SUCCESS,
