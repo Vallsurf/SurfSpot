@@ -10,21 +10,35 @@ h1 {
 }
 
 h3 {
+    color: #10b1ce;
     display:flex; 
-    flex-direction: row;
+    justify-content: center;
 }
+
 
 .countylist{
     display:flex; 
     flex-direction: row;
     flex-wrap: wrap; 
     justify-content: center;
-    margin: 10px;
-    padding: 5px;
+    padding: 7px;
+}
+
+.countylist a{
+    color: #10b1ce;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+.countylist a:hover{
+    color: black;
+    font-weight: bold;
+    text-decoration: none;
+    font-size: 18px;
 }
 
 .AllSpots{
-    width: 70%;
+    width: 80%;
     margin: 0 auto;
     display:flex;
     flex-direction: row;
@@ -32,6 +46,55 @@ h3 {
     flex-wrap: wrap;
 }
 
+.countyspots{
+    display:flex; 
+    width: 100%;
+    height: 60vh;
+    flex-flow: column wrap;
+    align-content: center;
+    
+}
+
+.spotlinks{
+    display:flex; 
+    width: 100%;
+    height: 60vh;
+    flex-flow: column wrap;
+    align-content: center;
+    margin: 0 auto;
+}
+
+.countyspots a{
+    font-size: 16px;
+}
+
+.SpotLink {
+    color: #10b1ce;
+    text-decoration: none;
+    
+    padding: 7px;
+    justify-content: flex-start;
+}
+
+.SpotLink a{
+    color: #10b1ce;
+    text-decoration: none;
+}
+
+.SpotLink a:hover{
+    color: #10b1ce;
+    text-decoration: none;
+}
+
+.CountyHeader{
+    display:flex; 
+    width:100%;
+    justify-content: center;
+}
+
+
+
+/*Hover List Stuff */
 .AllSpots ul {
     background: white;
     display:flex; 
@@ -68,54 +131,3 @@ h3 {
     border-radius:15px;
     padding: 20px;
 }
-
-.SpotLink a{
-    color: white;
-    text-decoration: none;
-}
-
-.SpotLink a:hover{
-    color: #10b1ce;
-    text-decoration: none;
-}
-
-
-
-/* .SpotLink{
-    display: none;
-} */
-
-.CountyHeader{
-    display:flex; 
-    justify-content: center;
-}
-
-/* .AllSpots ul ul {
-    position: absolute;
-    left: 0;
-    top: 100%;
-    visibility: hidden;
-    opacity: 0;
-}
-
-.AllSpots ul ul ul {
-    left: 100%;
-    top: 0;
-}
-
-.AllSpots li:hover, .AllSpots li:hover li {
-    background: #ddd;
-}
-
-.AllSpots li li:hover, .AllSpots li li:hover li {
-    background: #bbb;
-}
-
-.AllSpots li li li:hover {
-    background: #999;
-}
-
-.AllSpots li:hover > ul {
-    visibility: visible;
-    opacity: 1;
-} */
