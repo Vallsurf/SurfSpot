@@ -35,6 +35,7 @@ export class Spotlist extends Component {
           <Navbar />
       
           <h1>Browse Spots</h1>
+          {this.props.test.map(thisthing => <h3>{thisthing.spot_name}</h3>)}
           <h3>Counties</h3>
          <div className="AllSpots">
          {this.props.spots.map((county, index) => <div className="countylist"><a href="#" onClick={() => this.clickedCounty(index)}>{county._id}</a></div>)}
@@ -54,7 +55,8 @@ export class Spotlist extends Component {
 
 const mapStateToProps = state => {
   return {
-    spots: state.spots.allspots
+    spots: state.spots.allspots,
+    test: state.spots.spotsnapshot
   };
 };
   

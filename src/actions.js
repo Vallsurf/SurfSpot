@@ -94,6 +94,12 @@ export const RegisterSuccess = (user) => ({
     user
 });
 
+export const TEST = 'TEST';
+export const tester = (data) => ({
+    type: TEST,
+    data
+});
+
 
 export const fetchSpots = () => dispatch => {
     dispatch(fetchSpotsData());
@@ -237,6 +243,10 @@ export const fetchtest = () => dispatch => {
         })
             // Reject any requests which don't return a 200 status, creating
             // errors which follow a consistent format
-            .then(res => console.log(res.json()))
-    )
+            .then(res => res.json())
+            .then(res => dispatch(tester(res)))
+                
+                
+            )
+    
 }

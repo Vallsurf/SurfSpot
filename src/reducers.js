@@ -100,6 +100,13 @@ export const spotReducer = (state = initialState, action) => {
             })
         }
 
+        else if (action.type === actions.TEST){
+            
+            return Object.assign({}, state, {
+                spotsnapshot: action.data
+            })
+        }
+
        else{ return state}
         
 }
