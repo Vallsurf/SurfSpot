@@ -16,7 +16,6 @@ export class Spotlist extends Component {
   }
   
   componentDidMount() {
-    this.props.dispatch(fetchtest());
     this.props.dispatch(fetchSpots());
 }
 

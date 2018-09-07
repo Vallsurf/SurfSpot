@@ -57,6 +57,7 @@ export const spotReducer = (state = initialState, action) => {
         }
 
         else if (action.type === actions.FETCH_COUNTY_DATA_ONLY){
+            console.log(action.swell);
             const details = action.swell.map((item) => {
                 const wind = action.wind.find(w => w.hour === item.hour)
                 const tide = action.tide.find(t => t.hour === item.hour)
