@@ -227,31 +227,21 @@ export const getUserSpots = () => dispatch => {
 
 export const fetchDashboardForecast = (spotid, county) => dispatch => {
     dispatch(fetchSpotsData());
-    let urls = [
-        `http://api.spitcast.com/api/county/wind/${county}/`,
-        `http://api.spitcast.com/api/county/swell/${county}/`,
-        `http://api.spitcast.com/api/county/tide/${county}/`]
-    
-        //get spot forecast first if  exist
-    let forecast; 
-    fetch(`http://api.spitcast.com/api/spot/forecast/${spotid}/`)
-    .then(res => res.json())
-    .then(res => {forecast = res })
-    .catch(err => forecast='nogood')
-
-  //get County Data
-  Promise.all(urls.map(url => fetch(url))).then(([res1,res2,res3]) =>  
-  Promise.all([res1.json(), res2.json(), res3.json()]))
-  .then(([ wind, swell, tide]) => {
-    if(!forecast){
-            forecast = spotid; 
-          dispatch(fetchDashboardCountyData(forecast, wind, swell, tide));
-          
-    }
-    else{
-        dispatch(fetchDashboardSuccess(forecast, wind, swell, tide));
-    }
-      })
+    return(
+        fetch(`${API_BASE_URL}/api/test/spotdetails/${county}/${spotid}`)
+        .then(res => res.json())
+        .then(updatedSpots => {
+            let [wind, swell, tide, forecast] = [updatedSpots.wind, updatedSpots.swell, updatedSpots.tide, updatedSpots.forecast]; 
+            
+            if(forecast.length < 24 ){
+                forecast = spotid; 
+                dispatch(fetchDashboardCountyData(forecast, wind, swell, tide));
+            }
+            else{
+                dispatch(fetchDashboardSuccess(forecast, wind, swell, tide));
+            }
+        })
+    )
   .catch(err => console.log(err));
 
 };
