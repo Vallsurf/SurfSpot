@@ -122,7 +122,7 @@ export const fetchForecast = (spotid, county) => dispatch => {
     .then(res => {
         if(!res.ok){return forecast=`nogood`}
         return res.json()})
-    .then(res => {return forecast = res})
+    .then(res => {return console.log(res)})
     .catch(err => {return console.log(`err: ${err}`)})
   //get County Data
     .then(Promise.all(urls.map(url => fetch(url))).then(([res1,res2,res3]) => Promise.all([res1.json(), res2.json(), res3.json()]))
