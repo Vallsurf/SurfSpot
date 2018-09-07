@@ -113,12 +113,12 @@ export const fetchForecast = (spotid, county) => dispatch => {
     dispatch(fetchSpotsData());
 
     let urls = [
-        `https://api.spitcast.com/api/county/wind/${county}/`,
-        `https://api.spitcast.com/api/county/swell/${county}/`,
-        `https://api.spitcast.com/api/county/tide/${county}/`]
+        `http://api.spitcast.com/api/county/wind/${county}/`,
+        `http://api.spitcast.com/api/county/swell/${county}/`,
+        `http://api.spitcast.com/api/county/tide/${county}/`]
     //get spot forecast first and handle if doesn't exist
     let forecast; 
-    fetch(`https://api.spitcast.com/api/spot/forecast/${spotid}/`)
+    fetch(`http://api.spitcast.com/api/spot/forecast/${spotid}/`)
     .then(res => {
         if(!res.ok){return forecast=`nogood`}
         return res.json()})
@@ -228,3 +228,15 @@ export const fetchDashboardForecast = (spotid, county) => dispatch => {
   .catch(err => console.log(err));
 
 };
+
+
+export const fetchtest = () => dispatch => {
+    return (
+        fetch(`${API_BASE_URL}/api/test`, {
+            method: 'GET'
+        })
+            // Reject any requests which don't return a 200 status, creating
+            // errors which follow a consistent format
+            .then(res => console.log(res.json()))
+    )
+}

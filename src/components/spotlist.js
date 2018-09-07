@@ -6,7 +6,7 @@ import SpotLink from './spotlink';
 import {Link} from 'react-router-dom';
 import './spotlist.css'
 
-import {fetchSpots} from '../actions'; 
+import {fetchSpots, fetchtest} from '../actions'; 
 
 export class Spotlist extends Component {
   constructor(props) {
@@ -16,6 +16,7 @@ export class Spotlist extends Component {
   }
   
   componentDidMount() {
+    this.props.dispatch(fetchtest());
     this.props.dispatch(fetchSpots());
 }
 
