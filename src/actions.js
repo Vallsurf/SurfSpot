@@ -113,12 +113,12 @@ export const fetchForecast = (spotid, county) => dispatch => {
     dispatch(fetchSpotsData());
 
     let urls = [
-        `http://api.spitcast.com/api/county/wind/${county}/`,
-        `http://api.spitcast.com/api/county/swell/${county}/`,
-        `http://api.spitcast.com/api/county/tide/${county}/`]
+        `https://api.spitcast.com/api/county/wind/${county}/`,
+        `https://api.spitcast.com/api/county/swell/${county}/`,
+        `https://api.spitcast.com/api/county/tide/${county}/`]
     //get spot forecast first and handle if doesn't exist
     let forecast; 
-    fetch(`http://api.spitcast.com/api/spot/forecast/${spotid}/`)
+    fetch(`https://api.spitcast.com/api/spot/forecast/${spotid}/`)
     .then(res => {
         if(!res.ok){return forecast=`nogood`}
         return res.json()})
