@@ -3,6 +3,10 @@ import {Field, reduxForm, focus} from 'redux-form';
 import {registerUser, Login} from '../actions/auth'; 
 import {Link} from 'react-router-dom';
 import Input from './input';
+import {required, nonEmpty, matches, length, isTrimmed} from '../validators';
+
+const passwordLength = length({min: 6, max: 72});
+const matchesPassword = matches('password');
 
 export  class RegistrationForm extends Component {
     onSubmit(values) {
@@ -31,21 +35,21 @@ export  class RegistrationForm extends Component {
             component={Input}
             type="text"
             name="username"
-            // validate={[required, nonEmpty, isTrimmed]}
+            validate={[required, nonEmpty, isTrimmed]}
         />
         <label htmlFor="password">Password</label>
         <Field
             component={Input}
             type="password"
             name="password"
-            // validate={[required, passwordLength, isTrimmed]}
+            validate={[required, passwordLength, isTrimmed]}
         />
         <label htmlFor="passwordConfirm">Confirm password</label>
         <Field
             component={Input}
             type="password"
             name="passwordConfirm"
-            // validate={[required, nonEmpty, matchesPassword]}
+            validate={[required, nonEmpty, matchesPassword]}
         />
       
         <button
