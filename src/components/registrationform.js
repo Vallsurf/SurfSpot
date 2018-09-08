@@ -6,6 +6,7 @@ import Input from './input';
 import {required, nonEmpty, matches, length, isTrimmed} from '../validators';
 
 const passwordLength = length({min: 6, max: 72});
+const usernameLength = length({min: 3, max: 12});
 const matchesPassword = matches('password');
 
 export  class RegistrationForm extends Component {
@@ -26,7 +27,7 @@ export  class RegistrationForm extends Component {
         <h1>WELCOME TO SURFSPOT</h1>
         <h2>Register</h2>
         <form
-        className="login-form"
+        className="login-form" aria-label="Registration form" aria-live="assertive"
         onSubmit={this.props.handleSubmit(values =>
             this.onSubmit(values)
         )}>
@@ -35,7 +36,7 @@ export  class RegistrationForm extends Component {
             component={Input}
             type="text"
             name="username"
-            validate={[required, nonEmpty, isTrimmed]}
+            validate={[required, nonEmpty, usernameLength, isTrimmed]}
         />
         <label htmlFor="password">Password</label>
         <Field

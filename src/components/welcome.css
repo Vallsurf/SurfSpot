@@ -65,3 +65,9 @@ button{
 a{
     font-size: 20px;
 }
+
+.form-error{
+    color:red;
+    font-weight:bold;
+    font-size: 18px;
+}

@@ -3,6 +3,7 @@ import {Field, reduxForm, focus} from 'redux-form';
 import {Login as loginaction} from '../actions/auth'; 
 import {Link} from 'react-router-dom';
 import Input from './input';
+import {required, nonEmpty, matches, length, isTrimmed} from '../validators';
 import './login.css'
 
 export class Login extends Component {
@@ -12,7 +13,18 @@ export class Login extends Component {
     return this.props
         .dispatch(loginaction(user));
 }
+
   render() {
+    let error;
+		
+		if (this.props.error) {
+			error = (
+				<div className="form-error" aria-live="polite">
+						{this.props.error}
+				</div>
+			);
+    }
+    
     return (
       <div className="login-cont">
         <h1>WELCOME TO SURFSPOT</h1>
@@ -25,14 +37,14 @@ export class Login extends Component {
             component={Input}
             type="text"
             name="username"
-            // validate={[required, nonEmpty, isTrimmed]}
+            validate={[required, nonEmpty]}
         />
         <label htmlFor="password">Password</label>
         <Field
             component={Input}
             type="password"
             name="password"
-            // validate={[required, passwordLength, isTrimmed]}
+            validate={[required, nonEmpty]}
         />    
                <button
             type="submit"
@@ -40,6 +52,7 @@ export class Login extends Component {
             Login
         </button>     
         </form>
+        {error}
         <h3>Don't have an account? </h3>
         <Link to="/register">Register</Link>
       </div>
@@ -49,7 +62,6 @@ export class Login extends Component {
 
 export default reduxForm({
   form: 'login',
-  // onSubmitFail: (errors) => console.log(errors)
   onSubmitFail: (errors, dispatch) =>
       dispatch(focus('login', Object.keys(errors)[0]))
 })(Login);
