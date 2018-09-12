@@ -23,6 +23,17 @@
     margin-top:-250px;
 }
 
+.login-cont h3{
+    margin-top: 2px;
+    color: #717172;
+}
+
+.login-cont a{
+   padding:5px;
+   text-decoration: none;
+   outline: 2px solid #717172;
+}
+
 .RegHome{
     height:100%;
     text-align: center;
@@ -45,6 +56,18 @@
     flex-direction: column;
     margin-top:-250px;
 }
+
+.reg-cont h3{
+    margin-bottom: 0px;
+    color: #717172;
+}
+
+.reg-cont a{
+    padding:5px;
+    text-decoration: none;
+    font-weight:bold;
+    color: #5DC2D4;
+ }
 
 input[type="text"], input[type="password"]
 {
@@ -70,4 +93,20 @@ a{
     color:red;
     font-weight:bold;
     font-size: 18px;
+}
+
+@media (max-width: 500px) {    
+
+    .login-cont{
+        margin-top:-150px;
+    }
+
+    .reg-cont{
+        margin-top:-150px;
+    }
+
+   h3{
+       font-size: 14px;
+   }
+
 }

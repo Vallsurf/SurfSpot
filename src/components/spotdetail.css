@@ -14,12 +14,17 @@
     align-content: center;
     font-size: 40px;
     margin: 0 auto;
+    flex-direction: column;
+}
+
+.spotname h1 {
+    margin-bottom: 0px;
 }
 
 .spotpref {
     display: flex; 
     justify-content: center; 
-    margin-left: 15px;
+    margin: 0;
 }
 
 .sectionname {
@@ -64,6 +69,7 @@
 
 .currentconditions{
     display: flex;
+    width:100%;
     margin: 0 auto;
     justify-content: center;
     
@@ -74,10 +80,57 @@
     flex-direction: row;
     justify-content: center;
     margin: 0 auto;
-
+    width: 55%;
 }
 
-.chartdata{
-    display:flex;
-    margin: 0 auto;
+.spotadd img{
+    width: 25px;
+    height: 25px;
+}
+
+@media (max-width: 1000px) {
+    .chart{
+        width: 100%;
+    }
+
+    .spotname {
+        font-size: 18px; 
+    }
+
+    .spotpref{
+        margin: 0px;
+    }
+
+    .spotname h1{
+        font-size: 26px; 
+        margin: 3px;
+    }
+
+    .spotname a{
+        font-size: 9px; 
+    }
+
+    .sectionname h2{
+        font-size: 16px;
+    }
+
+    .spotadd img{
+        width: 10px;
+        height: 10px;
+        margin-top:15px;
+        align-content: center;
+        align-items: center;
+    }
+
+    .currentdetails h3{
+        font-size: 14px;
+        margin:5px;
+        font-weight:normal;
+    }
+
+    .sectionname h2{
+        font-size: 14px;
+        margin:5px;
+    }
+    
 }

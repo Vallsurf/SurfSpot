@@ -12,7 +12,8 @@ export class Spotlist extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      clicked: ''};
+      clicked: '',
+      visible: false};
   }
   
   componentDidMount() {
@@ -20,11 +21,18 @@ export class Spotlist extends Component {
 }
 
   clickedCounty(county) {
-    this.setState({clicked: this.props.spots[county]},
-      function (){
-        console.log(this.state.clicked.spots)
-      }
-    );
+    this.setState({clicked: this.props.spots[county]});
+    this.toggle(); 
+  }
+
+  toggle(){
+   this.setState({
+     visible: !this.state.visible
+   },
+   function (){
+     console.log(this.state.visible)
+   }
+  );
   }
 
   render() {
@@ -32,12 +40,11 @@ export class Spotlist extends Component {
     return (
       <div className="spotlist">
           <Navbar />
-      
-          <h1>Browse Spots</h1>
-          {this.props.test.map(thisthing => <h3>{thisthing.spot_name}</h3>)}
-          <h3>Counties</h3>
+          <h1>All Spots</h1>
+          <h3 className="reg">Counties</h3>
+          <Link to='#' className="mobile" onClick={() => this.toggle()}><h3>Counties</h3> </Link>
          <div className="AllSpots">
-         {this.props.spots.map((county, index) => <div className="countylist"><a href="#" onClick={() => this.clickedCounty(index)}>{county._id}</a></div>)}
+         <div className={"countyContainer" + (this.state.visible ? 'show' : 'dontshow')}>{this.props.spots.map((county, index) => <div className="countylist"><a href="#" onClick={() => this.clickedCounty(index)}>{county._id}</a></div>)}</div>
          
          <div className="countyspots"> 
           {this.state.clicked && <County data={this.state.clicked} />}

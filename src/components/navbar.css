@@ -37,3 +37,19 @@ li {
     color: #10b1ce;
     
 }
+
+
+@media (max-width: 1000px) {
+    .navbar a{
+        display: flex; 
+        text-decoration: none;
+        font-size: 40px;
+        flex: 1;
+        color: #10b1ce;
+        
+    }
+
+    .navbar li a {
+        font-size: 0.5em;
+    }
+}

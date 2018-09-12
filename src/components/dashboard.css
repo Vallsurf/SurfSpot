@@ -96,8 +96,11 @@
 
 
 
-@media (max-width: 800px) {
+@media (max-width: 1000px) {
+    .UserSpots{
+        width:100%;
+    }
     .spot {
-        width:400px;
+        width:100%;
     }
 }

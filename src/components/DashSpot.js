@@ -11,10 +11,6 @@ export class DashSpot extends Component {
     const spotid = this.props.data.spot_id;
     const county = this.props.data.county_name.split(" ").join("-").toLowerCase();
     this.props.dispatch(fetchDashboardForecast(spotid, county));
-
-    //call just for spot forecast
-
-    //call for just county data
     
   }
 

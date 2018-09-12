@@ -1,137 +1,222 @@
-
-.spotlist{
-    width: 80%;
-    margin: 0 auto;
+.spotlist {
+	width: 80%;
+	margin: 0 auto;
 }
+
 h1 {
-    color: #10b1ce;
-    display:flex; 
-    justify-content: center;
+	color: #10b1ce;
+	display: flex;
+	justify-content: center;
 }
 
 h3 {
-    color: #10b1ce;
-    display:flex; 
-    justify-content: center;
+	color: #10b1ce;
+	display: flex;
+	justify-content: center;
+}
+
+.AllSpots {
+	width: 80%;
+	margin: 0 auto;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	flex-wrap: wrap;
+}
+
+.countylist {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: center;
+	padding: 7px;
+}
+
+.countylist a {
+	color: #10b1ce;
+	text-decoration: none;
+	font-size: 18px;
+}
+
+.countylist a:hover {
+	color: black;
+	font-weight: bold;
+	text-decoration: none;
+	font-size: 18px;
+}
+
+.countyspots {
+	display: flex;
+	width: 100%;
+	height: 60vh;
+	flex-flow: column wrap;
+	align-content: center;
 }
 
 
-.countylist{
-    display:flex; 
-    flex-direction: row;
-    flex-wrap: wrap; 
-    justify-content: center;
-    padding: 7px;
-}
 
-.countylist a{
-    color: #10b1ce;
-    text-decoration: none;
-    font-size: 18px;
-}
-
-.countylist a:hover{
-    color: black;
-    font-weight: bold;
-    text-decoration: none;
-    font-size: 18px;
-}
-
-.AllSpots{
+.spotlinks {
+	display: flex;
+	height: 60vh;
+	flex-flow: column wrap;
+	align-content: center;
+    margin: 0 auto;
     width: 80%;
-    margin: 0 auto;
-    display:flex;
-    flex-direction: row;
-    justify-content: center;
-    flex-wrap: wrap;
 }
 
-.countyspots{
-    display:flex; 
-    width: 100%;
-    height: 60vh;
-    flex-flow: column wrap;
-    align-content: center;
-    
-}
-
-.spotlinks{
-    display:flex; 
-    height: 60vh;
-    flex-flow: column wrap;
-    align-content: center;
-    margin: 0 auto;
-}
-
-.countyspots a{
-    font-size: 16px;
+.countyspots a {
+	font-size: 16px;
 }
 
 .SpotLink {
-    color: #10b1ce;
-    text-decoration: none;
-    padding: 7px;
-    justify-content: center;
+    display:flex;
+	color: #10b1ce;
+	text-decoration: none;
+	padding: 7px;
+	justify-content: center;
+
 }
 
-.SpotLink a{
-    color: #10b1ce;
-    text-decoration: none;
-    
+.SpotLink a {
+	color: #10b1ce;
+	text-decoration: none;
 }
 
-.SpotLink a:hover{
-    color: #10b1ce;
-    text-decoration: none;
+.SpotLink a:hover {
+	color: #10b1ce;
+	text-decoration: none;
 }
 
-.CountyHeader{
+.CountyHeader {
+	display: flex;
+	width: 100%;
+	justify-content: center;
+}
+
+.countyContainerdontshow{
     display:flex; 
-    width:100%;
+    flex-flow: row wrap;
+	justify-content: center;
+	
+}
+
+.countyContainershow{
+    display:flex; 
+    flex-flow: row wrap;
     justify-content: center;
 }
 
-.SpotListContainer{
-    display: flex;
-    flex-direction: column;
-    
+.mobile{
+    display: none;
 }
-
 
 /*Hover List Stuff */
+
 .AllSpots ul {
-    background: white;
-    display:flex; 
-    flex-direction: row;
-    flex-wrap:wrap;
-    -webkit-transition: .5s;
-    transition: .5s;
-    justify-content: center;
-    
+	background: white;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	-webkit-transition: .5s;
+	transition: .5s;
+	justify-content: center;
 }
 
 .AllSpots li {
-    display:flex; 
-    flex-direction: column;
-    list-style: none;
-    -webkit-transition: .5s;
-    transition: .5s;
-    
+	display: flex;
+	flex-direction: column;
+	list-style: none;
+	-webkit-transition: .5s;
+	transition: .5s;
 }
 
-.AllSpots ul li:hover ul{
-    background-color: rgba(193, 193, 200, 0.9);
-    display: block;
-    opacity: 1;
-    color: white;
-} 
-
+.AllSpots ul li:hover ul {
+	background-color: rgba(193, 193, 200, 0.9);
+	display: block;
+	opacity: 1;
+	color: white;
+}
 
 .AllSpots ul li ul {
-    display:none;
-    opacity: 0;
-    position: absolute;
-    width: auto;
-    border-radius:15px;
-    padding: 20px;
+	display: none;
+	opacity: 0;
+	position: absolute;
+	width: auto;
+	border-radius: 15px;
+	padding: 20px;
 }
+
+@keyframes fadein {
+    from {
+        opacity:0;
+    }
+    to {
+        opacity:1;
+    }
+}
+@-moz-keyframes fadein { /* Firefox */
+    from {
+        opacity:0;
+    }
+    to {
+        opacity:1;
+    }
+}
+@-webkit-keyframes fadein { /* Safari and Chrome */
+    from {
+        opacity:0;
+    }
+    to {
+        opacity:1;
+    }
+}
+@-o-keyframes fadein { /* Opera */
+    from {
+        opacity:0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@media (max-width: 1000px) {    
+    .countyContainerdontshow{
+        display:flex; 
+		display: none;		
+    }
+
+	.countyContainershow{
+        display:flex; 
+		animation: fadein 2s;
+		-moz-animation: fadein 2s; /* Firefox */
+		-webkit-animation: fadein 2s; /* Safari and Chrome */
+		-o-animation: fadein 2s; /* Opera */	
+    }
+
+	.spotlinks{
+		animation: fadein 2s;
+		-moz-animation: fadein 2s; /* Firefox */
+		-webkit-animation: fadein 2s; /* Safari and Chrome */
+		-o-animation: fadein 2s; /* Opera */
+	}
+
+
+    .reg{
+        display:none;
+    }
+
+    .mobile{
+        display:flex;
+        justify-content: center;
+        text-decoration: none;
+    }
+    
+    .spotlinks{
+        height: fit-content;
+		text-align: center;
+
+    }
+
+}
+
+

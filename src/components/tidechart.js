@@ -57,13 +57,13 @@ export default class TideChart extends Component {
          },
          title: {
           display: true,
-          text: 'TIDE'
+          text: 'TIDE (ft.)'
       }
     }
       
     return (
-      <div className="chartdata">
-        <Line data={data} height={250} width={500} options={options}/>
+      <div className="chart">
+        <Line data={data} options={options}/>
       </div>
     )
   }

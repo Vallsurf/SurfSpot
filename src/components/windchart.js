@@ -6,7 +6,7 @@ export default class WindChart extends Component {
 
     let wind =[];
     const tidedata = this.props.data.map(daydata => {
-      wind.push(daydata.speed_kts)
+      wind.push(daydata.speed_mph)
     })
 
     const data = {
@@ -44,25 +44,25 @@ export default class WindChart extends Component {
                     display: false
                 }
             }],
-            yAxes: [{
-              gridLines: {
-                  display: false
+            yAxes: [
+              {
+              gridLines: {display: false}
               }
-          }],
+            ],
         },
         legend: {
             display: false
          },
          title: {
           display: true,
-          text: 'WIND'
+          text: 'WIND (mph)'
       },
       showLines: false
     }
       
     return (
-      <div className="chartdata">
-        <Line data={data} height={250} width={500} options={options}/>
+      <div className="chart">
+        <Line data={data} options={options}/>
       </div>
     )
   }

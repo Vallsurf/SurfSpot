@@ -56,13 +56,13 @@ export default class SwellChart extends Component {
          },
          title: {
           display: true,
-          text: 'SWELL'
+          text: 'SWELL (ft.)'
       }
     }
       
     return (
-      <div className="chartdata">
-        <Line data={data} height={250} width={500} options={options}/>
+      <div className="chart">
+        <Line data={data} options={options}/>
       </div>
     )
   }
