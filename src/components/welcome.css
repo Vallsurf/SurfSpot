@@ -31,7 +31,8 @@
 .login-cont a{
    padding:5px;
    text-decoration: none;
-   outline: 2px solid #717172;
+   outline: 2px solid #5DC2D4;
+   color: #5DC2D4;
 }
 
 .RegHome{
@@ -55,6 +56,7 @@
     align-items: center; 
     flex-direction: column;
     margin-top:-250px;
+   
 }
 
 .reg-cont h3{
@@ -63,10 +65,12 @@
 }
 
 .reg-cont a{
+    margin: 5px;
     padding:5px;
     text-decoration: none;
     font-weight:bold;
     color: #5DC2D4;
+    outline: 2px solid #5DC2D4;
  }
 
 input[type="text"], input[type="password"]
