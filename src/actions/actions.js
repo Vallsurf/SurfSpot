@@ -179,6 +179,7 @@ export const getUserSpots = () => dispatch => {
                 'Authorization': `Bearer ${token}`
             },
         })
+        .catch(err => console.log(err))
         .then(res => {
             return res.json()})
         .then(userInfo => {
