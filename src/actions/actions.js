@@ -137,7 +137,6 @@ export const fetchForecast = (spotid, county) => dispatch => {
 
 export const addFavorite = (spotid) => (dispatch) => {
     const token = loadAuthToken(); 
-    console.log(token); 
     return(
         fetch(`${API_BASE_URL}/api/user/addspot/${spotid}`, {
             method: 'PATCH',
@@ -155,8 +154,6 @@ export const addFavorite = (spotid) => (dispatch) => {
 
 export const removeFavorite = (spotid) => dispatch => {
     const token = loadAuthToken();
-    console.log(token);
-
     return(
         fetch(`${API_BASE_URL}/api/user/removespot/${spotid}`, {
             method: 'PATCH',

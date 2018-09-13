@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import {connect} from 'react-redux'; 
 import Navbar from './navbar';
-import SpotForecast from './spotForecast';
 import CurrentCondition from './currentcondition';
 import Spotadd from './spotadd'
 import TideChart from './tidechart'

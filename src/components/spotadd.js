@@ -17,15 +17,15 @@ export default class Spotadd extends Component {
   }
 
   render() {
-    
+    console.log(this.props)
     if(this.props.addButton === -1){
       return (
-        <div className='spotadd'><a href='#' onClick={() => this.onClickAdd()}><img src ={add}/>Add To Favorites</a></div>
+        <div className='spotadd'><a href='#' onClick={() => this.onClickAdd()}><img src ={add} alt='add'/>Add To Favorites</a></div>
       )
     }
     else {
       return (
-        <div className='spotremove'><img src ={checkmark} /><a href='#' onClick={() => this.onClickRemove()}>Remove</a></div>
+        <div className='spotremove'><img src ={checkmark} alt='remove'/><a href='#' onClick={() => this.onClickRemove()}>Remove</a></div>
       )
     }
   }

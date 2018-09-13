@@ -1,5 +1,5 @@
 import React, { Component } from 'react'; 
-import {BrowserRouter as Router, Route, Link} from 'react-router-dom';
+import { Route } from 'react-router-dom';
 import Welcome from './welcome'; 
 import Dashboard from './dashboard'; 
 import Spotlist from './spotlist';

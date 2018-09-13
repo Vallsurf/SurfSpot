@@ -7,8 +7,9 @@ export default class TideChart extends Component {
     // const tidedata = this.props.data.map(daydata => tide.push(daydata.tide));
 
     let tide =[]; 
-    const tidedata = this.props.data.map(daydata => {
-      tide.push(daydata.tide)
+    this.props.data.map(daydata => {
+      return tide.push(daydata.tide)
+      
     })
 
     const data = {

@@ -10,10 +10,10 @@ export default class CurrentCondition extends Component {
     if(this.props.data.spotdetail === 'nogood'){
       return (
         <div>
-        {this.props.data.totaldetails.map(hourlydata =>
+        {this.props.data.totaldetails.map((hourlydata, index) =>
           { 
               if(hourlydata.hour === currentHour)
-              {return <div className="currentdetails">
+              {return <div className="currentdetails" key={index}>
                   <div className="sectionname"> <h2>Current Conditions:</h2></div>
                   <h3>Swell: {((hourlydata.hst)*(3.2)).toFixed(1)} ft. </h3>
                   <h3>Wind: {(hourlydata.speed_mph).toFixed(1)} mph {hourlydata.direction_text} {hourlydata.direction_degrees} &deg;</h3> 
@@ -28,10 +28,10 @@ export default class CurrentCondition extends Component {
     else {
     return (
       <div>
-      {this.props.data.totaldetails.map(hourlydata =>
+      {this.props.data.totaldetails.map((hourlydata, index) =>
         { 
             if(hourlydata.hour === currentHour)
-            {return <div className="currentdetails">
+            {return <div className="currentdetails" key={index}>
             <div className="sectionname"> <h2>Current Conditions: {hourlydata.shape_full}</h2></div>
                 <h3>Swell: {hourlydata.size} ft. </h3>
                 <h3>Wind: {(hourlydata.speed_mph).toFixed(1)} mph {hourlydata.direction_text} {hourlydata.direction_degrees} &deg;</h3> 

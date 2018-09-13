@@ -2,11 +2,10 @@ import React, { Component } from 'react'
 import {connect} from 'react-redux'; 
 import Navbar from './navbar';
 import County from './County';
-import SpotLink from './spotlink';
 import {Link} from 'react-router-dom';
 import './spotlist.css'
 
-import {fetchSpots, fetchtest} from '../actions/actions'; 
+import {fetchSpots} from '../actions/actions'; 
 
 export class Spotlist extends Component {
   constructor(props) {

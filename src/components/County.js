@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import SpotLink from './spotlink'
-import {Link} from 'react-router-dom';
 
 export default class County extends Component {
   render() {

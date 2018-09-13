@@ -21,20 +21,20 @@ export default class DashSpotData extends Component {
           if(!thisspot.spot){
             if(thisspot.spot_id === spotid && thisspot.hour === currentHour)
             return( 
-            <div className="DashboardData">
-              <div className="DashboardDataRow"><img src ={swell} width='25px' height='25px'/> <p>  {thisspot.size} ft. {thisspot.shape_detail.swell}</p></div>
-              <div className="DashboardDataRow"><img src ={wind} width='25px' height='25px'/> <p> {thisspot.speed_kts} kts. {thisspot.direction_text}</p></div>
-              <div className="DashboardDataRow"><img src ={tide} width='25px' height='25px'/> <p> {((thisspot.tide_meters)*(3.28)).toFixed(1)} ft. </p></div>
+            <div className="DashboardData" key={index}>
+              <div className="DashboardDataRow"><img src ={swell} width='25px' height='25px' alt='swell'/> <p>  {thisspot.size} ft. {thisspot.shape_detail.swell}</p></div>
+              <div className="DashboardDataRow"><img src ={wind} width='25px' height='25px' alt='wind'/> <p> {thisspot.speed_kts} kts. {thisspot.direction_text}</p></div>
+              <div className="DashboardDataRow"><img src ={tide} width='25px' height='25px' alt='tide'/> <p> {((thisspot.tide_meters)*(3.28)).toFixed(1)} ft. </p></div>
             </div>
             )
           }
         else{
           if(thisspot.spot === spotid && thisspot.hour === currentHour)
           return(
-            <div className="DashboardData">
-            <div className="DashboardDataRow"><img src ={swell} width='25px' height='25px'/> <p>  {((thisspot.hst)*(3.28)).toFixed(1)} ft. </p></div>
-            <div className="DashboardDataRow"><img src ={wind} width='25px' height='25px'/> <p> {thisspot.speed_kts} kts. {thisspot.direction_text}</p></div>
-            <div className="DashboardDataRow"><img src ={tide} width='25px' height='25px'/> <p> {((thisspot.tide_meters)*(3.28)).toFixed(1)} ft. </p></div>
+            <div className="DashboardData" key={index}>
+            <div className="DashboardDataRow"><img src ={swell} width='25px' height='25px' alt='swell'/> <p>  {((thisspot.hst)*(3.28)).toFixed(1)} ft. </p></div>
+            <div className="DashboardDataRow"><img src ={wind} width='25px' height='25px' alt='wind'/> <p> {thisspot.speed_kts} kts. {thisspot.direction_text}</p></div>
+            <div className="DashboardDataRow"><img src ={tide} width='25px' height='25px' alt='tide'/> <p> {((thisspot.tide_meters)*(3.28)).toFixed(1)} ft. </p></div>
           </div>
           )
         }

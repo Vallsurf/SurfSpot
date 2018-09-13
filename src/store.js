@@ -3,7 +3,7 @@ import {spotReducer, initialState as spots} from './reducers/reducers';
 import {Reducer as authReducer, initialState as auth} from './reducers/authreducer'; 
 import { reducer as formReducer } from 'redux-form'
 import thunk from 'redux-thunk'; 
-import {loadAuthToken , refreshAuthToken} from './local-storage';
+import {loadAuthToken} from './local-storage';
 import {reloadToken} from './actions/auth';
 
 const preloadState = {spots, auth }
