@@ -25,7 +25,7 @@ export default class Spotadd extends Component {
     }
     else {
       return (
-        <div className='spotadd'><img src ={checkmark} /><a href='#' onClick={() => this.onClickRemove()}>Remove</a></div>
+        <div className='spotremove'><img src ={checkmark} /><a href='#' onClick={() => this.onClickRemove()}>Remove</a></div>
       )
     }
   }

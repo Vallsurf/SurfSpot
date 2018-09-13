@@ -20,9 +20,7 @@ export class DashSpot extends Component {
 
     return (  
       <div className ="SpotData">
-        {/* Use Link */}
         <Link to={`spots/` + this.props.data.county_name + '/' + this.props.data.spot_id + `/` + this.props.data.spot_name}>{this.props.data.spot_name}</Link>
-        {/* <a href={`spots/` + this.props.data.county_name + '/' + this.props.data.spot_id + `/` + this.props.data.spot_name}>{this.props.data.spot_name}</a> */}
         {this.props.spotdata.map((spots, index) =>  <DashSpotData key={index} data={spots} spotid={this.props.data.spot_id} />)}
       </div>
     )

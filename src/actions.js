@@ -115,38 +115,6 @@ export const fetchSpots = () => dispatch => {
 
 };
 
-// export const fetchForecast = (spotid, county) => dispatch => {
-//     dispatch(fetchSpotsData());
-
-//     let urls = [
-//         `http://api.spitcast.com/api/county/wind/${county}/`,
-//         `http://api.spitcast.com/api/county/swell/${county}/`,
-//         `http://api.spitcast.com/api/county/tide/${county}/`]
-//     //get spot forecast first and handle if doesn't exist
-//     let forecast; 
-//     fetch(`http://api.spitcast.com/api/spot/forecast/${spotid}/`)
-//     .then(res => {
-//         if(!res.ok){return forecast=`nogood`}
-//         return res.json()})
-//     .then(res => {forecast = res})
-//     .catch(err => {return console.log(`err: ${err}`)})
-//   //get County Data
-//     .then(Promise.all(urls.map(url => fetch(url))).then(([res1,res2,res3]) => Promise.all([res1.json(), res2.json(), res3.json()]))
-//     .then(([ wind, swell, tide]) => {
-//         console.log(forecast)  
-//             if(!forecast){
-//                 let forecast = 'nogood'
-//                 dispatch(fetchCountyDataOnly(forecast, wind, swell, tide));
-//             }
-//             else{
-//                dispatch(fetchSingleSpotFullSuccess(forecast, wind, swell, tide));
-//             }
-//         })
-//     )
-//   .catch(err => console.log(err));
-
-// };
-
 export const fetchForecast = (spotid, county) => dispatch => {
     dispatch(fetchSpotsData());
     return(
@@ -245,19 +213,3 @@ export const fetchDashboardForecast = (spotid, county) => dispatch => {
   .catch(err => console.log(err));
 
 };
-
-
-// export const fetchtest = () => dispatch => {
-//     return (
-//         fetch(`${API_BASE_URL}/api/test`, {
-//             method: 'GET'
-//         })
-//             // Reject any requests which don't return a 200 status, creating
-//             // errors which follow a consistent format
-//             .then(res => res.json())
-//             .then(dispatch(tester(res)))
-                
-                
-//             )
-    
-// }

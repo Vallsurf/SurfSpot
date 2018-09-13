@@ -14,7 +14,6 @@ export default class CurrentCondition extends Component {
           { 
               if(hourlydata.hour === currentHour)
               {return <div className="currentdetails">
-                  {/* <h3>Overall: {hourlydata.}</h3> */}
                   <div className="sectionname"> <h2>Current Conditions:</h2></div>
                   <h3>Swell: {((hourlydata.hst)*(3.2)).toFixed(1)} ft. </h3>
                   <h3>Wind: {(hourlydata.speed_mph).toFixed(1)} mph {hourlydata.direction_text} {hourlydata.direction_degrees} &deg;</h3> 

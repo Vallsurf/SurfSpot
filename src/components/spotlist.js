@@ -44,7 +44,7 @@ export class Spotlist extends Component {
           <h3 className="reg">Counties</h3>
           <Link to='#' className="mobile" onClick={() => this.toggle()}><h3>Counties</h3> </Link>
          <div className="AllSpots">
-         <div className={"countyContainer" + (this.state.visible ? 'show' : 'dontshow')}>{this.props.spots.map((county, index) => <div className="countylist"><a href="#" onClick={() => this.clickedCounty(index)}>{county._id}</a></div>)}</div>
+         <div className={"countyContainer" + (this.state.visible ? 'show' : 'dontshow')}>{this.props.spots.map((county, index) => <div className="countylist" key={index}><a href="#" onClick={() => this.clickedCounty(index)}>{county._id}</a></div>)}</div>
          
          <div className="countyspots"> 
           {this.state.clicked && <County data={this.state.clicked} />}

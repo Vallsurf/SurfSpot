@@ -88,6 +88,10 @@
     height: 25px;
 }
 
+.spotremove img{
+    width: 25px;
+    height: 25px;
+}
 @media (max-width: 1000px) {
     .chart{
         width: 100%;
