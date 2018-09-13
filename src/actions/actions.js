@@ -1,6 +1,5 @@
-import {loadAuthToken, saveAuthToken, clearAuthToken} from './local-storage'; 
-import {normalizeResponseErrors} from './actions/utils';
-const {API_BASE_URL} = require('./config');
+import {loadAuthToken, saveAuthToken, clearAuthToken} from '../local-storage'; 
+const {API_BASE_URL} = require('../config');
 
 
 export const FETCH_SPOTS_SUCCESS = 'FETCH_SPOTS_SUCCESS';

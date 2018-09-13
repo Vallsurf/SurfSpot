@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
-import { fetchDashboardForecast } from '../actions';
+import { fetchDashboardForecast } from '../actions/actions';
 import DashSpotData from './DashSpotData';
 import spinner from '../assets/spinning-circles.svg';
 import {Link} from 'react-router-dom';

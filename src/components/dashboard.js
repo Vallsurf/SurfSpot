@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import Navbar from './navbar';
 import DashSpot from './DashSpot'
 import requiresLogin from './requires-login';
-import {getUserSpots, refreshDashData} from '../actions'
+import {getUserSpots, refreshDashData} from '../actions/actions'
 import {Link} from 'react-router-dom';
 import './dashboard.css'
 

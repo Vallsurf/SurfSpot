@@ -7,7 +7,7 @@ import Spotadd from './spotadd'
 import TideChart from './tidechart'
 import SwellChart from './swellchart'
 import WindChart from './windchart'
-import {fetchForecast, getUserSpots} from '../actions'; 
+import {fetchForecast, getUserSpots} from '../actions/actions'; 
 import './spotdetail.css'
 
 

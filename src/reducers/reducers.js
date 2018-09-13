@@ -1,4 +1,4 @@
-import * as actions from './actions';
+import * as actions from '../actions/actions';
 export const initialState = {
     loading: false ,
     allspots: [], 

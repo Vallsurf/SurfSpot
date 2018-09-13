@@ -1,7 +1,7 @@
 import React, { Component } from 'react';  
 import add from '../assets/add.png'; 
 import checkmark from '../assets/checkmark.png'; 
-import {removeFavorite, addFavorite} from '../actions'
+import {removeFavorite, addFavorite} from '../actions/actions'
 
 export default class Spotadd extends Component {
   onClickRemove() {

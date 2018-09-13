@@ -2,7 +2,7 @@ import jwtDecode from 'jwt-decode';
 import {SubmissionError} from 'redux-form';
 import {normalizeResponseErrors} from './utils';
 import {loadAuthToken, saveAuthToken, clearAuthToken} from '../local-storage'; 
-import {fetchUserSpots} from '../actions'
+import {fetchUserSpots} from './actions'
 
 import {API_BASE_URL} from '../config';
 
