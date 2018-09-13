@@ -1,4 +1,4 @@
-import {loadAuthToken, saveAuthToken, clearAuthToken} from '../local-storage'; 
+import {loadAuthToken} from '../local-storage'; 
 const {API_BASE_URL} = require('../config');
 
 
