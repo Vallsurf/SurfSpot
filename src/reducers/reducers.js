@@ -1,6 +1,7 @@
 import * as actions from '../actions/actions';
 export const initialState = {
     loading: false ,
+    error: false, 
     allspots: [], 
     spotdetail: [], 
     spotsnapshot: [],
@@ -19,6 +20,12 @@ export const spotReducer = (state = initialState, action) => {
         else if (action.type === actions.FETCH_SPOTS_DATA){
             return Object.assign({}, state, {
                 loading: true
+            })
+        }
+
+        else if (action.type === actions.FETCH_SPOTS_ERR){
+            return Object.assign({}, state, {
+                error: true
             })
         }
 
