@@ -3,6 +3,7 @@ import {Field, reduxForm, focus} from 'redux-form';
 import {registerUser, Login} from '../actions/auth'; 
 import {Link} from 'react-router-dom';
 import Input from './input';
+import spinner from '../assets/spinning-single.svg';
 import {required, nonEmpty, matches, length, isTrimmed} from '../validators';
 
 const passwordLength = length({min: 6, max: 72});
@@ -22,6 +23,23 @@ export  class RegistrationForm extends Component {
     }
 
   render() {
+    let error;
+    let loading; 
+		
+	if (this.props.error) {
+			error = (
+				<div className="form-error" aria-live="polite">
+						{this.props.error}
+				</div>
+			);
+    }
+
+    if (this.props.submitting) {
+			loading = (
+				<div id="loading"><img src={spinner} alt="Loading..."/></div>
+			);
+    }
+
     return (
         <div className="reg-cont">
         <h1>WELCOME TO SURFSPOT</h1>
@@ -59,6 +77,8 @@ export  class RegistrationForm extends Component {
             Register
         </button>
     </form>
+    {error}
+    {loading}
     <h3>Already have an account? </h3>
     <Link to="/">Login</Link>
     </div>
@@ -68,7 +88,6 @@ export  class RegistrationForm extends Component {
 
 export default reduxForm({
     form: 'registration',
-    // onSubmitFail: (errors) => console.log(errors)
     onSubmitFail: (errors, dispatch) =>
         dispatch(focus('registration', Object.keys(errors)[0]))
 })(RegistrationForm);

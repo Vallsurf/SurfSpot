@@ -3,6 +3,7 @@ import {Field, reduxForm, focus} from 'redux-form';
 import {Login as loginaction} from '../actions/auth'; 
 import {Link} from 'react-router-dom';
 import Input from './input';
+import spinner from '../assets/spinning-single.svg';
 import {required, nonEmpty, matches, length, isTrimmed} from '../validators';
 import './login.css'
 
@@ -16,12 +17,19 @@ export class Login extends Component {
 
   render() {
     let error;
+    let loading; 
 		
 		if (this.props.error) {
 			error = (
 				<div className="form-error" aria-live="polite">
 						{this.props.error}
 				</div>
+			);
+    }
+
+    if (this.props.submitting) {
+			loading = (
+				<div id="loading"><img src={spinner} alt="Loading..."/></div>
 			);
     }
     
@@ -54,6 +62,7 @@ export class Login extends Component {
         </button>     
         </form>
         {error}
+        {loading}
         <h3>Don't have an account? </h3>
         <Link to="/register">Register</Link>
       </div>
