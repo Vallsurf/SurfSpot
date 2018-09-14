@@ -1,9 +1,19 @@
-This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
+#SurfSpot. 
+A simple, elegant, easy to use Surf Report App.
 
-Below you will find some information on how to perform common tasks.<br>
-You can find the most recent version of this guide [here](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md).
+## What's SurfSpot? 
+SurfSpot is a Surf Report Web App built on a MERN stack. SurfSpot allows users to create an account, browse local Surfing Spots (currently Calfornia only), and save their favorite surf spots - creating an easy-to-glance dashboard of current surf conditions at their favorite spots! 
 
-## Table of Contents
+## Visit Surfspot 
+A demo version of SurfSpot is available [here](https://evening-reaches-41950.herokuapp.com)
+
+```
+Demo Account: 
+Username: Tester
+Password: Tester
+```
+
+
 
 - [Updating to New Releases](#updating-to-new-releases)
 - [Sending Feedback](#sending-feedback)
@@ -141,7 +151,7 @@ my-app/
     App.js
     App.test.js
     index.css
-    index.js
+    index.js  
     logo.svg
 ```
 
