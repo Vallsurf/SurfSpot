@@ -35,3 +35,5 @@ Server-Side (repo available [here](https://github.com/Vallsurf/Surfspot-API)):
 - bcryptjs for password encryption
 
 ## Screenshots
+
+<img width="495" alt="screen shot 2018-09-14 at 1 20 04 am" src="https://user-images.githubusercontent.com/487681/45538636-76d1dd80-b7bc-11e8-9e50-2a78e9c347bf.png">
