@@ -37,3 +37,5 @@ Server-Side (repo available [here](https://github.com/Vallsurf/Surfspot-API)):
 ## Screenshots
 
 <img width="495" alt="screen shot 2018-09-14 at 1 20 04 am" src="https://user-images.githubusercontent.com/487681/45538636-76d1dd80-b7bc-11e8-9e50-2a78e9c347bf.png">
+<img width="985" alt="screen shot 2018-09-14 at 1 18 55 am" src="https://user-images.githubusercontent.com/487681/45538703-a254c800-b7bc-11e8-91e5-bd6c4eb88a97.png">
+<img width="788" alt="screen shot 2018-09-14 at 1 19 23 am" src="https://user-images.githubusercontent.com/487681/45538710-a5e84f00-b7bc-11e8-9cc1-2389d0bc6ef3.png">
