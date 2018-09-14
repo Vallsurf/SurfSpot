@@ -82,7 +82,7 @@ export const registerUser = user => dispatch => {
 
 //Logs User In
 export const Login = (user) => dispatch => {
-    // dispatch(authRequest());
+    dispatch(authRequest());
     return (
         fetch(`${API_BASE_URL}/api/login`, {
             method: 'POST',

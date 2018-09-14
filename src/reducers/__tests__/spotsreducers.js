@@ -54,27 +54,40 @@ describe('Fetch All Spots', () => {
 
 
 //Fetch User Spots
-describe('Fetch All Spots', () => {
+describe('Fetch User Spots', () => {
     it('Should Handle Spots Request', () => {
+        const userspots = ['test', 'test2', 'test3']
         let state; 
-        state = spotReducer(state, actions.fetchSpotsData());
-        expect(state.loading).toEqual(true);
+        state = spotReducer(state, actions.fetchUserSpots(userspots));
+        expect(state.userspots).toEqual(userspots);
         
     });
 
-    it('Should Handle Spots Request Success', () => {
+    it('Should Handle Edit User Spots Success', () => {
+        const userspots = ['test', 'test2', 'test3']
         let state; 
-        state = spotReducer(state, actions.fetchSpotsSuccess(spots));
-        expect(state.error).toEqual(false);
-        expect(state.loading).toEqual(false);
-        expect(state.allspots).toEqual(spots);
+        state = spotReducer(state, actions.editUserSpots(userspots));
+        expect(state.userspots).toEqual(userspots);
+    });
+});
+
+//Dashboard Data
+describe('Dashboard Reducers', () => {
+    it('Should Refresh Dashboard', () => {
+        let state; 
+        state = spotReducer(state, actions.refreshDashData());
+        expect(state.spotsnapshot).toEqual([]);
+        
     });
 
-    it('Should Handle Spots Request Error', () => {
-        const err = 'nogood'
+    it('Should Handle Dashboard fetch Success', () => {
+        const forecast = [{hour: 'test'},{hour: 'test2'},{hour: 'test3'},{hour: 'test4'}]
+        const wind = [{hour: 'test'},{hour: 'test2'},{hour: 'test3'},{hour: 'test4'}] 
+        const swell = [{hour: 'test'},{hour: 'test2'},{hour: 'test3'},{hour: 'test4'}] 
+        const tide = [{hour: 'test'},{hour: 'test2'},{hour: 'test3'},{hour: 'test4'}]  
+        const result = [{hour: 'test'},{hour: 'test2'},{hour: 'test3'},{hour: 'test4'}]  
         let state; 
-        state = spotReducer(state, actions.fetchSpotsError(err));
-        expect(state.error).toEqual(true);
-    
+        state = spotReducer(state, actions.fetchDashboardSuccess(forecast, wind, swell, tide));
+   
     });
 });
