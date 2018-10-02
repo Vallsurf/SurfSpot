@@ -9,8 +9,8 @@ A demo version of SurfSpot is available [here](https://evening-reaches-41950.her
 
 ```
 Demo Account: 
-Username: Tester
-Password: Tester
+Username: test
+Password: test
 ```
 
 
