@@ -4,7 +4,7 @@ import {Login as loginaction} from '../actions/auth';
 import {Link} from 'react-router-dom';
 import Input from './input';
 import spinner from '../assets/spinning-single.svg';
-import {required, nonEmpty, matches, length, isTrimmed} from '../validators';
+import {required, nonEmpty} from '../validators';
 import './login.css'
 
 export class Login extends Component {

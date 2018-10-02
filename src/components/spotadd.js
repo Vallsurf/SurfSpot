@@ -6,18 +6,15 @@ import {removeFavorite, addFavorite} from '../actions/actions'
 export default class Spotadd extends Component {
   onClickRemove() {
     const spotid = this.props.id; 
-    console.log(spotid);
     this.props.dispatch(removeFavorite(spotid)); 
   }
 
   onClickAdd() {
     const spotid = this.props.id; 
-    console.log(spotid);
     this.props.dispatch(addFavorite(spotid)); 
   }
 
   render() {
-    console.log(this.props)
     if(this.props.addButton === -1){
       return (
         <div className='spotadd'><a href='#' onClick={() => this.onClickAdd()}><img src ={add} alt='add'/>Add To Favorites</a></div>
