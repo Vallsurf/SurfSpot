@@ -5,7 +5,6 @@ import {Link} from 'react-router-dom';
 import Input from './input';
 import spinner from '../assets/spinning-single.svg';
 import {required, nonEmpty} from '../validators';
-import './login.css'
 
 export class Login extends Component {
   onSubmit(values) {
@@ -36,7 +35,7 @@ export class Login extends Component {
     return (
       <div className="login-cont">
         <h1>WELCOME TO SURFSPOT</h1>
-        <h3>A CLEAN, EASY TO USE SURF REPORT APP</h3>
+        <h2>A CLEAN, EASY TO USE SURF REPORT APP</h2>
         <form className="login"  
         onSubmit={this.props.handleSubmit(values =>
             this.onSubmit(values)
@@ -63,8 +62,9 @@ export class Login extends Component {
         </form>
         {error}
         {loading}
-        <h3>Don't have an account? </h3>
-        <Link to="/register">Register</Link>
+        <p>Demo Account <br /> User: tester <br />Pass: tester </p>
+        <h3> Don't have an account? </h3>
+        <button><Link to="/register">Register</Link></button>
       </div>
     )
   }

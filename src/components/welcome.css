@@ -15,6 +15,18 @@
     
 }
 
+.Welcome, .reg-cont label{
+    font-size: 20px;
+}
+
+.Welcome h1{
+    font-size: 3em;
+}
+
+.reg-cont h1{
+    font-size: 3em;
+}
+
 .login-cont{
     display: flex;
     justify-content: center;
@@ -23,16 +35,18 @@
     margin-top:-250px;
 }
 
+
+
 .login-cont h3{
     margin-top: 2px;
     color: #717172;
+    margin-bottom: 0px;
 }
 
-.login-cont a{
-   padding:5px;
-   text-decoration: none;
-   outline: 2px solid #5DC2D4;
-   background-color:rgba(206, 210, 219, 0.7);
+.login-cont h2{
+    margin-top: 2px;
+    color: #717172;
+    
 }
 
 .RegHome{
@@ -64,14 +78,10 @@
     color: #717172;
 }
 
-.reg-cont a{
-    margin: 5px;
-    padding:5px;
-    text-decoration: none;
-    font-weight:bold;
-    outline: 2px solid #5DC2D4;
-    background-color:rgba(206, 210, 219, 0.7);
- }
+p{
+    color: #10b1ce
+}
+
 
 input[type="text"], input[type="password"]
 {
@@ -83,15 +93,20 @@ input[type="text"], input[type="password"]
 }
 
 button{
-    color:#5D605B;
-    font-size: 16px;
+    color: grey;
+    background-color: white;
+    font-size: 20px;
+    font-family: 'Cormorant Garamond', serif;
     padding: 7px;
     margin: 10px;
+    border-radius: 10px 10px 10px 10px; 
+}
+button a{
+    color: grey;
+    text-decoration: none;
+    font-family: 'Cormorant Garamond', serif;
 }
 
-a{
-    font-size: 20px;
-}
 
 .form-error{
     color:red;
@@ -127,9 +142,16 @@ textarea {
     .reg-cont{
         margin-top:-200px;
     }
+    .Welcome h1{
+        font-size:30px;
+    }
 
+    .Welcome h2{
+        font-size: 20px;
+    }
+    
    h3{
-       font-size: 14px;
+       font-size: 18px;
    }
 
 }

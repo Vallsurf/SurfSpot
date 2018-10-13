@@ -80,7 +80,7 @@ export  class RegistrationForm extends Component {
     {error}
     {loading}
     <h3>Already have an account? </h3>
-    <Link to="/">Login</Link>
+    <button><Link to="/">Login</Link></button>
     </div>
     )
   }
