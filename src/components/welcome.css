@@ -8,23 +8,10 @@
     background-position: center center;
     background-repeat: no-repeat;
     display: flex;
-    justify-content: center;
     align-items: center; 
     flex-direction: column;
     font-family: 'Cormorant Garamond', serif;
     
-}
-
-.Welcome, .reg-cont label{
-    font-size: 20px;
-}
-
-.Welcome h1{
-    font-size: 3em;
-}
-
-.reg-cont h1{
-    font-size: 3em;
 }
 
 .login-cont{
@@ -32,18 +19,23 @@
     justify-content: center;
     align-items: center; 
     flex-direction: column;
-    margin-top:-250px;
+    
+    
 }
 
-
-
-.login-cont h3{
-    margin-top: 2px;
-    color: #717172;
-    margin-bottom: 0px;
+.login-cont h1{
+    font-size: 4em;
+    margin-block-end: 0px;
 }
 
 .login-cont h2{
+    font-size: 2em;
+    margin-top: 2px;
+    color: #717172;
+    
+}
+
+.login-cont h3{
     margin-top: 2px;
     color: #717172;
     
@@ -57,7 +49,6 @@
     background-position: center center;
     background-repeat: no-repeat;
     display: flex;
-    justify-content: center;
     align-items: center; 
     flex-direction: column;
     font-family: 'Cormorant Garamond', serif;
@@ -69,18 +60,29 @@
     justify-content: center;
     align-items: center; 
     flex-direction: column;
-    margin-top:-250px;
-   
+}
+
+.reg-cont h1{
+    font-size: 4em;
+    margin-block-end: 0px;
+}
+
+.reg-cont h2{
+    font-size: 2em;
+    margin-top: 2px;
+    color: #717172;
+    
 }
 
 .reg-cont h3{
-    margin-bottom: 0px;
+    margin-top: 2px;
     color: #717172;
+    
 }
 
-p{
-    color: #10b1ce
-}
+
+
+
 
 
 input[type="text"], input[type="password"]
@@ -136,18 +138,25 @@ textarea {
 @media (max-width: 500px) {    
 
     .login-cont{
-        margin-top:-150px;
+        margin-top:0px;
+        margin:20px;
     }
 
     .reg-cont{
-        margin-top:-200px;
+        margin-top:0px;
+        margin:20px;
     }
+
     .Welcome h1{
-        font-size:30px;
+        margin-bottom: 10px;
     }
 
     .Welcome h2{
-        font-size: 20px;
+        font-size: 14px;
+    }
+
+    .reg-cont h1{
+        margin-bottom: 5px;
     }
     
    h3{

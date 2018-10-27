@@ -10,7 +10,7 @@ import Login from './login';
 export function Welcome(props)  {
   if (props.loggedIn) {
     return <Redirect to="/dashboard" />;
-}
+} 
     return (
       <div className="Welcome"> 
         <Login />

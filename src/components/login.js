@@ -34,8 +34,11 @@ export class Login extends Component {
     
     return (
       <div className="login-cont">
-        <h1>WELCOME TO SURFSPOT</h1>
+      
+        <h1>SURFSPOT</h1>
         <h2>A CLEAN, EASY TO USE SURF REPORT APP</h2>
+
+
         <form className="login"  
         onSubmit={this.props.handleSubmit(values =>
             this.onSubmit(values)

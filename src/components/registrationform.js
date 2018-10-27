@@ -42,7 +42,7 @@ export  class RegistrationForm extends Component {
 
     return (
         <div className="reg-cont">
-        <h1>WELCOME TO SURFSPOT</h1>
+        <h1>SURFSPOT</h1>
         <h2>Register</h2>
         <form
         className="login-form" aria-label="Registration form" aria-live="assertive"
